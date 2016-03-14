@@ -6,4 +6,4 @@ source ~/dotfiles/.env_vars
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/.alias
 
-source ~/.iterm2_shell_integration.`basename $SHELL`
+source ~/dotfiles/.iterm2_shell_integration.`basename $SHELL`
