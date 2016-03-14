@@ -1,0 +1,13 @@
+{
+  "env": {
+    "browser": 1
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "block-scoped-var": 1
+    /*"jquery/dollar-sign": 2*/
+  },
+  "globals": {
+    "$"
+  }
+}

@@ -1,0 +1,141 @@
+Host raspberrypie
+    HostName 10.0.1.15
+    Port 22
+    User pi
+    IdentityFile ~/.ssh/raspberrypie
+Host homeserve
+    HostName 10.0.1.31
+    Port 22
+    User rtvenge
+    # IdentityFile ~/.ssh/homeserve
+Host opticroot
+    HostName 205.186.149.126
+    Port 22
+    User root
+    IdentityFile ~/.ssh/opticroot
+Host optic
+    HostName 205.186.149.126
+    Port 22
+    User optic
+    IdentityFile ~/.ssh/optic
+Host rtvenge
+    HostName 205.186.149.126
+    Port 22
+    User rtvenge
+    IdentityFile ~/.ssh/rtvenge
+Host hb
+    HostName 205.186.149.126
+    Port 22
+    User hoverboard
+    IdentityFile ~/.ssh/hb
+Host dopp
+    HostName 205.186.149.126
+    Port 22
+    User doppx006
+    IdentityFile ~/.ssh/doppx006
+Host auburn
+    HostName 205.186.149.126
+    Port 22
+    User auburn
+    IdentityFile ~/.ssh/auburn
+Host janetvenge
+    HostName 205.186.149.126
+    Port 22
+    User janetvenge
+    IdentityFile ~/.ssh/janetvenge
+Host git
+    HostName 205.186.149.126
+    Port 22
+    User git
+    IdentityFile ~/.ssh/git
+Host jira
+    HostName 205.186.149.126
+    Port 22
+    User jira
+    IdentityFile ~/.ssh/jira
+Host chadrogezdesign.com
+    HostName s193628.gridserver.com
+    Port 22
+    User chadrogezdesign.com
+    IdentityFile ~/.ssh/chadrogezdesign.com
+
+Host supcamp_stage
+    HostName p3nlpaas001.shr.prod.phx3.secureserver.net
+    Port 22
+    User g2542387336008
+    IdentityFile ~/.ssh/supcamp_stage
+
+Host supcamp_prod
+    HostName p3nlpaas001.shr.prod.phx3.secureserver.net
+    Port 22
+    User supe2387293732
+    IdentityFile ~/.ssh/supcamp_prod
+Host amazon_ec2
+    HostName 54.191.16.119
+    Port 22
+    User ubuntu
+    IdentityFile ~/.ssh/EC2.pem
+Host amazon_ec2
+    HostName 54.191.16.119
+    Port 22
+    User ubuntu
+    IdentityFile ~/.ssh/EC2.pem
+Host github.com
+    Hostname ssh.github.com
+    Port 443
+    IdentityFile ~/.ssh/github
+Host vvv
+    HostName 127.0.0.1
+    Port 22
+    User vagrant
+    IdentityFile ~/.ssh/vvv
+Host insurance_lib
+    HostName git.wpengine.com
+    Port 22
+    # User insurancelib-rtvenge
+    User git
+Host kalish
+    HostName git.wpengine.com
+    Port 22
+    # User drdanielkalish-rtvenge
+    User git
+Host pathways_staging
+    HostName p3nlpaas001.shr.prod.phx3.secureserver.net
+    Port 22
+    User j4052590542051
+    IdentityFile ~/.ssh/pathways_staging
+Host pathways_production
+    HostName p3nlpaas001.shr.prod.phx3.secureserver.net
+    Port 22
+    User path2590541458
+    IdentityFile ~/.ssh/pathways_production
+Host stpaul
+    HostName opticllc.com
+    Port 22
+    User stpaul
+    IdentityFile ~/.ssh/stpaul
+Host jayandee
+    HostName opticllc.com
+    Port 22
+    User jayandee
+    IdentityFile ~/.ssh/jayandee
+Host jayandee
+    HostName opticllc.com
+    Port 22
+    User jayandee
+    IdentityFile ~/.ssh/jayandee
+Host jayandee
+    HostName opticllc.com
+    Port 22
+    User jayandee
+    IdentityFile ~/.ssh/jayandee
+Host stp
+    HostName staging-15650.prod.hosting.acquia.com
+    Port 22
+    User saintpaul.dev
+    IdentityFile ~/.ssh/id_rsa
+Host stp_prod
+    HostName ded-15759.prod.hosting.acquia.com
+    Port 22
+    User saintpaul.prod
+    IdentityFile ~/.ssh/id_rsa

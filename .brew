@@ -1,0 +1,82 @@
+#!/bin/bash
+
+# Make sure we’re using the latest Homebrew
+brew update
+
+# Upgrade any already-installed formulae
+brew upgrade
+
+# Install GNU core utilities (those that come with OS X are outdated)
+brew install coreutils
+echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+brew install findutils
+
+# Install wget with IRI support
+brew install wget --enable-iri
+
+# Install Cask
+brew install caskroom/cask/brew-cask
+
+# Install more recent versions of some OS X tools
+brew tap homebrew/dupes
+brew install homebrew/dupes/grep
+brew tap josegonzalez/homebrew-php
+
+# Install Node via NVM
+# Docs: https://github.com/creationix/nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+
+# Install everything else
+brew install brew-cask
+brew install gcc
+brew install libmpc
+brew install openssl
+brew install terminal-notifier
+brew install cloog
+brew install git
+brew install libpng
+brew install pcre
+brew install tig
+brew install coreutils
+brew install git-ftp
+brew install libsass
+brew install phplint
+brew install tree
+brew install curl
+brew install gmp
+brew install libssh2
+brew install pkg-config
+brew install wget
+brew install findutils
+brew install grep
+brew install mongodb
+brew install readline
+brew install xz
+brew install fontconfig
+brew install isl
+brew install mpfr
+brew install rename
+brew install youtube-dl
+brew install freetype
+brew install libidn
+brew install shellcheck
+
+# Casks
+# brew cask install sublime-text
+# brew cask install firefox
+# brew cask install hipchat
+# brew cask install iterm2
+# brew cask install alfred
+# brew cask install boot2docker
+# brew cask install sourcetree
+# brew cask install caffeine
+# brew cask install opera
+# brew cask install sequel-pro
+# brew cask install mamp
+# brew cask install dropbox
+# brew cask install transmit
+# brew cask install virtualbox
+
+# Remove outdated versions from the cellar
+brew cleanup
