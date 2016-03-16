@@ -7,3 +7,5 @@ source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/.alias
 
 source ~/dotfiles/.iterm2_shell_integration.`basename $SHELL`
+
+alias drush='/Applications/DevDesktop/drush/drush'
