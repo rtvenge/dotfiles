@@ -23,3 +23,15 @@ alias twitter='t timeline -n 10'
 alias lsbox="ps aux | grep '[V]BoxHeadless' | awk '{ print \$2 }' | xargs -I {} lsof -a -d cwd -p {}"
 
 alias ip="ifconfig |grep inet"
+
+# To easily share file through command line
+# https://github.com/dutchcoders/transfer.sh/
+transfer() {
+  # write to output to tmpfile because of progress bar
+  tmpfile=$( mktemp -t transferXXX )
+  curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+  cat $tmpfile;
+  rm -f $tmpfile;
+}
+
+alias transfer=transfer
