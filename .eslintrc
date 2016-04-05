@@ -12,11 +12,15 @@
     "semi": [
       2,
       "always"
-    ]
+    ],
+    "no-console": 1
   },
   "env": {
     "es6": true,
     "browser": true
   },
-  "extends": "eslint:recommended"
+  "extends": "eslint:recommended",
+  "globals": {
+    "jQuery": true
+  }
 }
