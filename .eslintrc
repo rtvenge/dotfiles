@@ -2,12 +2,9 @@
   "rules": {
     "indent": [
       2,
-      4
+      2
     ],
-    "quotes": [
-      2,
-      "double"
-    ],
+    "quotes": 0,
     "linebreak-style": [
       2,
       "unix"
