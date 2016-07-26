@@ -33,7 +33,7 @@ module.exports = {
       '#173448',
       '#b9362a',
       '#46d56d',
-      '#FF9D00',
+      '#ffc600',
       '#005cbb', // path bar
       '#a53dcf',
       '#34a283',
