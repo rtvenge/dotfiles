@@ -31,7 +31,7 @@ module.exports = {
     // the full list
     colors: [
       '#173448',
-      '#b9362a',
+      '#de483c',
       '#46d56d',
       '#ffc600',
       '#005cbb', // path bar
