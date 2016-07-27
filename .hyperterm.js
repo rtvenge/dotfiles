@@ -9,6 +9,9 @@ module.exports = {
     // terminal cursor background color (hex)
     cursorColor: '#ffc600',
 
+    cursorShape: 'BEAM',
+    shell: 'zsh',
+
     // color of the text
     foregroundColor: '#fff',
 
@@ -16,7 +19,7 @@ module.exports = {
     backgroundColor: '#173448',
 
     // border color (window, tabs)
-    borderColor: 'transparent',
+    borderColor: '#35434d',
 
     // custom css to embed in the main window
     css: '',
@@ -27,38 +30,37 @@ module.exports = {
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '4px',
 
+    windowSize: [1024, 768],
+
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
-    colors: [
-      '#173448',
-      '#de483c',
-      '#46d56d',
-      '#ffc600',
-      '#005cbb', // path bar
-      '#a53dcf',
-      '#34a283',
-      '#bec3c6',
-
-      '#374960',
-      '#de483c',
-      '#35a251',
-      '#ffc600',
-      '#4a92db',
-      '#964ab6',
-      '#3dbe99',
-      '#ecf0f1'
-    ]
+    colors: {
+      black: '#173448',
+      red: '#de483c',
+      green: '#46d56d',
+      yellow: '#ffc600',
+      blue: '#005cbb',
+      magenta: '#a53dcf',
+      cyan: '#34a283',
+      white: '#bec3c6',
+      lightBlack: '#374960',
+      lightRed: '#de483c',
+      lightGreen: '#35a251',
+      lightYellow: '#ffc600',
+      lightBlue: '#4a92db',
+      lightMagenta: '#964ab6',
+      lightCyan: '#3dbe99',
+      lightWhite: '#ecf0f1'
+    },
 
   },
 
   // a list of plugins to fetch and install from npm
   // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
   plugins: [
-    // 'cobalt2-hyperterm-theme'
+    'hyperterm-1password',
+    'hyperpower',
+    'hyperterm-dibdabs'
   ],
 
   // in development, you can create a directory under
