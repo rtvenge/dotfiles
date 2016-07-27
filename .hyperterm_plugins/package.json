@@ -8,7 +8,8 @@
   "homepage": "https://hyperterm.org",
   "dependencies": {
     "hyperterm-1password": "latest",
-    "hyperpower": "latest",
-    "hyperterm-dibdabs": "latest"
+    "hyperpower-plus": "latest",
+    "hyperterm-dibdabs": "latest",
+    "hyperterm-bold-tab": "latest"
   }
 }

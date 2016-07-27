@@ -7,7 +7,7 @@ module.exports = {
     fontFamily: '"Source Code Pro for Powerline", "DejaVu Sans Mono", "Lucida Console", monospace',
 
     // terminal cursor background color (hex)
-    cursorColor: '#ffc600',
+    cursorColor: '#f4d300',
 
     cursorShape: 'BEAM',
     shell: 'zsh',
@@ -36,22 +36,28 @@ module.exports = {
     // the full list
     colors: {
       black: '#173448',
-      red: '#de483c',
-      green: '#46d56d',
-      yellow: '#ffc600',
-      blue: '#005cbb',
-      magenta: '#a53dcf',
-      cyan: '#34a283',
-      white: '#bec3c6',
-      lightBlack: '#374960',
-      lightRed: '#de483c',
-      lightGreen: '#35a251',
-      lightYellow: '#ffc600',
-      lightBlue: '#4a92db',
-      lightMagenta: '#964ab6',
-      lightCyan: '#3dbe99',
-      lightWhite: '#ecf0f1'
+      red: '#ff2600',
+      green: '#3ddf2b ',
+      yellow: '#ffe700',
+      blue: '#1478db',
+      magenta: '#ff2c70',
+      cyan: '#00c5c7',
+      white: '#c7c7c7',
+      lightBlack: '#686868',
+      lightRed: '#f92a1c',
+      lightGreen: '#43d426',
+      lightYellow: '#f1d000',
+      lightBlue: '#6871ff',
+      lightMagenta: '#ff77ff',
+      lightCyan: '#79e8fb',
+      lightWhite: '#ffffff'
     },
+
+    plugins: {
+      "hyperpower-plus": {
+        "shake.enabled": false
+      }
+    }
 
   },
 
@@ -59,8 +65,10 @@ module.exports = {
   // format: [@org/]project[#version]
   plugins: [
     'hyperterm-1password',
-    'hyperpower',
-    'hyperterm-dibdabs'
+    'hyperpower-plus',
+    'hyperterm-dibdabs',
+    // 'cobalt2-hyperterm-theme',
+    'hyperterm-bold-tab'
   ],
 
   // in development, you can create a directory under
