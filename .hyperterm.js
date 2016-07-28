@@ -32,8 +32,7 @@ module.exports = {
 
     windowSize: [1024, 768],
 
-    // some color overrides. see http://bit.ly/29k1iU2 for
-    // the full list
+    // AKA Cobalt2
     colors: {
       black: '#173448',
       red: '#ff2600',
@@ -43,7 +42,7 @@ module.exports = {
       magenta: '#ff2c70',
       cyan: '#00c5c7',
       white: '#c7c7c7',
-      lightBlack: '#686868',
+      lightBlack: '#9d9d9d',
       lightRed: '#f92a1c',
       lightGreen: '#43d426',
       lightYellow: '#f1d000',
@@ -67,8 +66,8 @@ module.exports = {
     'hyperterm-1password',
     'hyperpower-plus',
     'hyperterm-dibdabs',
-    // 'cobalt2-hyperterm-theme',
-    'hyperterm-bold-tab'
+    'hyperterm-bold-tab',
+    'hyperterm-title',
   ],
 
   // in development, you can create a directory under

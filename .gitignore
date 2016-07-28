@@ -1,2 +1,2 @@
-dotfiles/
-.hyperterm_plugins/node_modules/
+node_modules
+npm-debug.log.*
