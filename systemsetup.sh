@@ -21,9 +21,6 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 #nvm
 curl https://raw.githubusercontent.com/creationix/nvm/v0.18.0/install.sh | bash
 
-# Symlink dotfiles directory from Dropbox
-ln -s ~/Dropbox/app\ settings/dotfiles dotfiles
-
 # Install needed node modules
 ~/dotfiles/.nodemodules
 
@@ -31,9 +28,7 @@ ln -s ~/Dropbox/app\ settings/dotfiles dotfiles
 ~/dotfiles/.gems
 
 #symlink from dotfiles directory
-ln -s ~/Dropbox/app\ settings/dotfiles/.zshrc .zshrc
-ln -s ~/Dropbox/app\ settings/dotfiles/.gitconfig .gitconfig
-ln -s ~/Dropbox/app\ settings/dotfiles/.gitignore_global .gitignore_global
+~/dotfiles/symlink_files.sh
 
 # Disable "last logged in" prompt
 touch ~/.hushlogin
