@@ -11,6 +11,9 @@
     "hyperpower-plus": "latest",
     "hyperterm-dibdabs": "latest",
     "hyperterm-bold-tab": "latest",
-    "hyperterm-title": "latest"
+    "hyperterm-title": "latest",
+    "hyperterm-paste": "latest",
+    "hypercwd": "latest",
+    "hyperterm-alternatescroll": "latest"
   }
 }

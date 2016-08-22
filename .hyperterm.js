@@ -67,6 +67,10 @@ module.exports = {
     'hyperterm-dibdabs',
     'hyperterm-bold-tab',
     'hyperterm-title',
+    'hyperterm-paste',
+    'hypercwd',
+    'hyperterm-alternatescroll'
+
   ],
 
   // in development, you can create a directory under
