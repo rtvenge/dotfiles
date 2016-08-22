@@ -35,3 +35,4 @@ transfer() {
 }
 
 alias transfer=transfer
+alias drush='/Applications/DevDesktop/drush/drush'
