@@ -31,7 +31,6 @@ module.exports = {
     padding: '4px',
 
     windowSize: [1024, 768],
-
     // AKA Cobalt2
     colors: {
       black: '#173448',
