@@ -25,7 +25,13 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: '',
+    termCSS: `
+    x-row span[style="background-color: rgb(255, 255, 255);"] {
+      background-color: rgba(199, 199, 199, 0.2) !important;
+      border-radius: 2px;
+      color: #33ff00;
+    }
+    `,
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '4px',
@@ -67,9 +73,8 @@ module.exports = {
     'hyperterm-dibdabs',
     'hyperterm-bold-tab',
     'hyperterm-title',
-    'hyperterm-paste',
-    'hypercwd',
-    'hyperterm-alternatescroll'
+    // 'hyperterm-paste'
+    'hyperterm-alternatescroll',
 
   ],
 

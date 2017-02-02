@@ -5,7 +5,6 @@
 #############
 
 #my custom alias'
-alias ll='ls -al'
 alias gs='git status'
 alias gcwp='git add -A && git commit -am "upgrading wordpress core/themes/plugins"'
 alias ga='git add -A'

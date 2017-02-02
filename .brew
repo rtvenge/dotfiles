@@ -64,6 +64,7 @@ brew install youtube-dl
 brew install freetype
 brew install libidn
 brew install shellcheck
+brew install mas
 
 # Casks
 brew cask install firefox
