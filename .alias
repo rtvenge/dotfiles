@@ -5,18 +5,19 @@
 #############
 
 #my custom alias'
+alias rm='trash'
 alias gs='git status'
 alias gcwp='git add -A && git commit -am "upgrading wordpress core/themes/plugins"'
 alias ga='git add -A'
 alias gc='git commit -am'
 alias edithosts='atom /etc/hosts'
-#alias sites='cd ~/Dropbox/Sites/'
 alias pythonserver="p -m SimpleHTTPServer"
 alias hb="~/Dropbox/Hoverboard"
 alias d="~/Dropbox"
 alias v='vagrant'
 alias tweet='t update'
 alias twitter='t timeline -n 10'
+alias z=`brew --prefix`/etc/profile.d/z.sh
 
 # List all instances of Virtual Box
 alias lsbox="ps aux | grep '[V]BoxHeadless' | awk '{ print \$2 }' | xargs -I {} lsof -a -d cwd -p {}"
