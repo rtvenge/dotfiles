@@ -5,7 +5,6 @@
 #############
 
 #my custom alias'
-echo $HOME
 if [[ "$HOME" == "/Users/rtvenge" ]]; then
   alias rm='trash'
 fi
