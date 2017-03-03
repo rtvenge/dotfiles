@@ -6,15 +6,13 @@
 
 #my custom alias'
 alias rm='trash'
-alias gcwp='git add -A && git commit -am "upgrading wordpress core/themes/plugins"'
+alias gcwp='echo "Nope! use git cwp"' # Keep these until I get used to new alias' in .gitconfig
+alias gs='echo "Nope! use git st"' # Keep these until I get used to new alias' in .gitconfig
+alias gc='echo "Nope! use git coma"' # Keep these until I get used to new alias' in .gitconfig
 alias edithosts='atom /etc/hosts'
 alias pythonserver="p -m SimpleHTTPServer"
-alias hb="~/Dropbox/Hoverboard"
-alias d="~/Dropbox"
 alias v='vagrant'
-alias tweet='t update'
-alias twitter='t timeline -n 10'
-alias z=`brew --prefix`/etc/profile.d/z.sh
+alias z='brew --prefix' /etc/profile.d/z.sh
 
 # List all instances of Virtual Box
 alias lsbox="ps aux | grep '[V]BoxHeadless' | awk '{ print \$2 }' | xargs -I {} lsof -a -d cwd -p {}"

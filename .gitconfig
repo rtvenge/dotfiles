@@ -43,6 +43,7 @@
 	patch = add --patch
 	unstage = reset HEAD --
 	unstage-patch = reset HEAD --patch
-	com = commit -am
+	com = commit -m
+	coma = commit -am
 	amend = commit --amend --no-edit
 	follow = log --follow -p
