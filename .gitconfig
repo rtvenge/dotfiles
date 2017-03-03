@@ -26,7 +26,7 @@
 [gui]
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -35,3 +35,14 @@
 	recentrepo = /Users/rtvenge/Sites/site_tracker
 	recentrepo = /Users/rtvenge/Sites/GitHubLocal/Provenance
 	recentrepo = /Users/rtvenge/.kalabox/apps/ccw2016/code
+[alias]
+	st = status --branch --short
+	cwp = git add -A && git commit -am "upgrading wordpress core/themes/plugins"
+	wat = log --graph --decorate --oneline -15
+	cd = checkout
+	patch = add --patch
+	unstage = reset HEAD --
+	unstage-patch = reset HEAD --patch
+	com = commit -am
+	amend = commit --amend --no-edit
+	follow = log --follow -p

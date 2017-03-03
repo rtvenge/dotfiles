@@ -6,10 +6,7 @@
 
 #my custom alias'
 alias rm='trash'
-alias gs='git status'
 alias gcwp='git add -A && git commit -am "upgrading wordpress core/themes/plugins"'
-alias ga='git add -A'
-alias gc='git commit -am'
 alias edithosts='atom /etc/hosts'
 alias pythonserver="p -m SimpleHTTPServer"
 alias hb="~/Dropbox/Hoverboard"
