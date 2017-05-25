@@ -12,5 +12,3 @@ source ~/dotfiles/.alias
 if [ -f ~/dotfiles/.git-completion.zsh ]; then
   . ~/dotfiles/.git-completion.zsh
 fi
-
-alias drush='/Applications/DevDesktop/drush/drush'
