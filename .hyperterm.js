@@ -10,6 +10,7 @@ module.exports = {
     cursorColor: '#f4d300',
 
     cursorShape: 'BEAM',
+    // shell: '/usr/local/bin/fish',
     shell: 'zsh',
 
     // color of the text
