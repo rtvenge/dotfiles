@@ -1,8 +1,17 @@
 {
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": "airbnb",
   "rules": {
-    "indent": [
-      2,
-      2
+    # "indent": [
+    #   2,
+    #   2
+    # ],
+    "comma-dangle": [
+      1,
+      "never"
     ],
     "quotes": 0,
     "linebreak-style": [
@@ -13,14 +22,11 @@
       2,
       "always"
     ],
-    "no-console": 1
+    "no-console": 0,
+    "no-unused-vars": 1
   },
-  "env": {
-    "es6": true,
-    "browser": true
-  },
-  "extends": "eslint:recommended",
   "globals": {
     "jQuery": true
-  }
+  },
+  "plugins": ["html"]
 }
