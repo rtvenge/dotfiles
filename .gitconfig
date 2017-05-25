@@ -3,6 +3,8 @@
 	email = ryan@hoverboardstudios.com
 [core]
 	excludesfile = /Users/rtvenge/.gitignore_global
+	editor = vim
+	fileMode = false
 [mergetool]
 	keepBackup = true
 	prompt = false
@@ -34,10 +36,10 @@
 	recentrepo = /Users/rtvenge/Sites/localwordpress_vvv/www/insurnacelibrary/htdocs
 	recentrepo = /Users/rtvenge/Sites/site_tracker
 	recentrepo = /Users/rtvenge/Sites/GitHubLocal/Provenance
-	recentrepo = /Users/rtvenge/.kalabox/apps/ccw2016/code
+	recentrepo = /Users/rtvenge/Sites/devdesktop/babymedd7-dev
 [alias]
 	st = status --branch --short
-	cwp = git add -A && git commit -am "upgrading wordpress core/themes/plugins"
+	cwp = commit -am "upgrading wordpress core/themes/plugins"
 	wat = log --graph --decorate --oneline -15
 	cd = checkout
 	patch = add --patch
