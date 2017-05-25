@@ -12,7 +12,7 @@ alias gcwp='echo "Nope! use git cwp"' # Keep these until I get used to new alias
 alias gs='echo "Nope! use git st"' # Keep these until I get used to new alias' in .gitconfig
 alias gc='echo "Nope! use git coma"' # Keep these until I get used to new alias' in .gitconfig
 alias edithosts='atom /etc/hosts'
-alias pythonserver="p -m SimpleHTTPServer"
+alias pythonserver="python -m SimpleHTTPServer"
 alias v='vagrant'
 alias z='brew --prefix' /etc/profile.d/z.sh
 
@@ -32,4 +32,4 @@ transfer() {
 }
 
 alias transfer=transfer
-alias drush='/Applications/DevDesktop/drush/drush'
+alias drush='/Applications/DevDesktop/tools/drush'
