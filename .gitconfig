@@ -39,7 +39,6 @@
 	recentrepo = /Users/rtvenge/Sites/devdesktop/babymedd7-dev
 [alias]
 	st = status --branch --short
-	cwp = commit -am "upgrading wordpress core/themes/plugins"
 	wat = log --graph --decorate --oneline -15
 	cd = checkout
 	patch = add --patch
@@ -47,5 +46,8 @@
 	unstage-patch = reset HEAD --patch
 	com = commit -m
 	coma = commit -am
+	devpull = pull origin develop:develop
+	# Not working
+	# cwp = commit -am "upgrading wordpress core/themes/plugins"
 	amend = commit --amend --no-edit
 	follow = log --follow -p

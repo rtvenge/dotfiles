@@ -8,10 +8,8 @@
 if [[ "$HOME" == "/Users/rtvenge" ]]; then
   alias rm='trash'
 fi
-alias gcwp='echo "Nope! use git cwp"' # Keep these until I get used to new alias' in .gitconfig
-alias gs='echo "Nope! use git st"' # Keep these until I get used to new alias' in .gitconfig
-alias gc='echo "Nope! use git coma"' # Keep these until I get used to new alias' in .gitconfig
-alias edithosts='atom /etc/hosts'
+alias gcwp='git commit -am "upgrading wordpress core/themes/plugins"'
+alias edithosts='vim /etc/hosts'
 alias pythonserver="python -m SimpleHTTPServer"
 alias v='vagrant'
 alias z='brew --prefix' /etc/profile.d/z.sh
