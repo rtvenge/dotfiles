@@ -9,6 +9,8 @@ source ~/dotfiles/.alias
 
 # source ~/dotfiles/.iterm2_shell_integration.`basename $SHELL`
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 if [ -f ~/dotfiles/.git-completion.zsh ]; then
   . ~/dotfiles/.git-completion.zsh
 fi
