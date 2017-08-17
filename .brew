@@ -65,6 +65,7 @@ brew install freetype
 brew install libidn
 brew install shellcheck
 brew install mas
+brew install bradp/vv/vv
 
 # Casks
 brew cask install firefox
