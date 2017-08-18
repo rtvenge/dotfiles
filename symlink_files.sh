@@ -29,5 +29,8 @@ for FILE in "${files[@]}"
 
   done
 
+  # set gitignore global file after symlinked
+  git config --global core.excludesfile ~/.gitignore_global
+
   # Setup Vundle
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
