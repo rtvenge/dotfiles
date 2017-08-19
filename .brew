@@ -34,6 +34,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/mas
 brew install brew-cask
 brew install gcc
 brew install libmpc
+brew install trash
 brew install openssl
 brew install terminal-notifier
 brew install cloog
