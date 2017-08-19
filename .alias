@@ -5,7 +5,7 @@
 #############
 
 #my custom alias'
-if [[ "$HOME" == "/Users/rtvenge" ]]; then
+if [[ "$HOME" == *"/Users/"* ]]; then
   alias rm='trash'
 fi
 alias gcwp='git commit -am "upgrading wordpress core/themes/plugins"'
