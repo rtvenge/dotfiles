@@ -70,7 +70,7 @@ module.exports = {
   // format: [@org/]project[#version]
   plugins: [
     'hyperterm-1password',
-    'hyperpower-plus',
+    // 'hyperpower-plus',
     'hyperterm-dibdabs',
     'hyperterm-bold-tab',
     'hyperterm-title',

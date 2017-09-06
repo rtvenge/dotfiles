@@ -5,9 +5,9 @@
 #############
 
 #my custom alias'
-if [[ "$HOME" == *"/Users/"* ]]; then
-  alias rm='trash'
-fi
+#if [[ "$HOME" == *"/Users/"* ]]; then
+#  alias rm='trash'
+#fi
 alias gcwp='git commit -am "upgrading wordpress core/themes/plugins"'
 alias edithosts='vim /etc/hosts'
 alias pythonserver="python -m SimpleHTTPServer"
