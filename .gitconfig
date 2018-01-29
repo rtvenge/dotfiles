@@ -2,7 +2,7 @@
 	name = Ryan Tvenge
 	email = ryan@hoverboardstudios.com
 [core]
-	excludesfile = /Users/ryantvenge/.gitignore_global
+	excludesfile = /Users/rtvenge/.gitignore_global
 	editor = vim
 	fileMode = false
 [mergetool]
