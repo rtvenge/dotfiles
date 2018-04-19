@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function termauth () {
+  terminus auth:login --machine-token=TERMINUS_KEY;
+  lando terminus auth:login --machine-token=TERMINUS_KEY;
+}
+
+function webhost () {
+  git remote add webhost $(terminus connection:info --format=list --fields=git_url $1.dev)
+}
