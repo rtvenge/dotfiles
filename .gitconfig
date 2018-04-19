@@ -33,10 +33,6 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [gui]
-	recentrepo = /Users/rtvenge/Sites/localwordpress_vvv/www/insurnacelibrary/htdocs
-	recentrepo = /Users/rtvenge/Sites/site_tracker
-	recentrepo = /Users/rtvenge/Sites/GitHubLocal/Provenance
-	recentrepo = /Users/rtvenge/Sites/devdesktop/babymedd7-dev
 [alias]
 	st = status --branch --short
 	wat = log --graph --decorate --oneline -15
@@ -47,7 +43,10 @@
 	com = commit -m
 	coma = commit -am
 	devpull = pull origin develop:develop
+	ocmitt = commit
 	# Not working
 	# cwp = commit -am "upgrading wordpress core/themes/plugins"
 	amend = commit --amend --no-edit
 	follow = log --follow -p
+[gui]
+	recentrepo = /Users/ryantvenge/Kalabox/lawyermarketing/code
