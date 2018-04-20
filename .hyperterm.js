@@ -1,7 +1,7 @@
 module.exports = {
   config: {
     // default font size in pixels for all tabs
-    fontSize: 18,
+    fontSize: 14,
 
     // font family with optional fallbacks
     fontFamily: '"Source Code Pro for Powerline", "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -26,13 +26,13 @@ module.exports = {
     css: '',
 
     // custom css to embed in the terminal window
-    termCSS: `
-    x-row span[style="background-color: rgb(255, 255, 255);"] {
-      background-color: rgba(199, 199, 199, 0.2) !important;
-      border-radius: 2px;
-      color: #33ff00;
-    }
-    `,
+    // termCSS: `
+    // x-row span[style="background-color: rgb(255, 255, 255);"] {
+    //   background-color: rgba(199, 199, 199, 0.2) !important;
+    //   border-radius: 2px;
+    //   color: #33ff00;
+    // }
+    // `,
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '4px',
