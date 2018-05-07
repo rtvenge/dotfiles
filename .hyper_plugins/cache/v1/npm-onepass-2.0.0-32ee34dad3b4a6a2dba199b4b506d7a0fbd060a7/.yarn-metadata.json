@@ -1,0 +1,40 @@
+{
+  "manifest": {
+    "name": "onepass",
+    "version": "2.0.0",
+    "description": "Retrieve passwords from 1Password",
+    "author": {
+      "name": "Simon Bartlett",
+      "email": "simon@sibartlett.com"
+    },
+    "license": "MIT",
+    "homepage": "https://github.com/sibartlett/onepass",
+    "repository": {
+      "type": "git",
+      "url": "git://github.com/sibartlett/onepass"
+    },
+    "main": "index.js",
+    "keywords": [
+      "1password"
+    ],
+    "dependencies": {
+      "ws": "^1.1.1"
+    },
+    "_registry": "npm",
+    "_loc": "/Users/rtvenge/.hyper_plugins/cache/v1/npm-onepass-2.0.0-32ee34dad3b4a6a2dba199b4b506d7a0fbd060a7/package.json",
+    "readmeFilename": "README.md",
+    "readme": "# onepass\n\nNode.js library for communicating with 1Password and retrieving passwords.\n\n```js\nconst onepass = require('onepass')();\n\n// Configure creds if you have them\nonepass.auth.credentials(creds);\n\n// Otherwise generate new creds\ncreds = onepass.auth.generateCredentials();\nonepass.auth.credentials(creds);\n\n// Promise API\nonepass.password('http://example.com')\n       .then(password => ...)\n       .catch(err => ...);\n\n// Node callback API\nonepass.password('http://example.com', (err, pass) => {\n  ...\n})\n```\n\n### Configuring 1Password5 to work with onepass\n\nIf you're using 1Password 5+, or you run into this screen:\n\n![Cannot Fill Item in Web Browser](https://raw.githubusercontent.com/ravenac95/readme-images/master/sudolikeaboss/cannot-fill-item-error-popup.png)\n\nThis causes a problem for `onepass` as it isn't a \"trusted browser\" per se.\nIn order to fix this issue, you need to do the following:\n\n1. Open up 1Password's preferences\n2. Find the `Advanced` settings tab.\n3. Uncheck `Verify browser code signature`.\n\n![Uncheck \"Verify browser code signature\"](https://cloud.githubusercontent.com/assets/889219/6270365/a69a0726-b816-11e4-9b96-558ddeb00378.png)\n\n### Acknowledgements\n\nA big thank you [Reuven V. Gonzales](https://github.com/ravenac95) and his work on [sudolikeaboss](https://github.com/ravenac95/sudolikeaboss). `onepass` is largely based on `sudolikeaboss`.\n\nAnother big thank you to [AgileBits](https://agilebits.com/) for bringing us [1Password](https://1password.com/).\n",
+    "licenseText": "Copyright (c) 2016 Simon Bartlett\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS\nIN THE SOFTWARE.\n"
+  },
+  "artifacts": [],
+  "remote": {
+    "resolved": "https://registry.yarnpkg.com/onepass/-/onepass-2.0.0.tgz#32ee34dad3b4a6a2dba199b4b506d7a0fbd060a7",
+    "type": "tarball",
+    "reference": "https://registry.yarnpkg.com/onepass/-/onepass-2.0.0.tgz",
+    "hash": "32ee34dad3b4a6a2dba199b4b506d7a0fbd060a7",
+    "registry": "npm",
+    "packageName": "onepass"
+  },
+  "registry": "npm",
+  "hash": "32ee34dad3b4a6a2dba199b4b506d7a0fbd060a7"
+}

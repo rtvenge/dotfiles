@@ -1,12 +1,12 @@
 #!/bin/bash
 
 files=(
-  .hyperterm.js
+  .hyper.js
   .editorconfig
   .eslintrc
   .gitconfig
   .gitignore_global
-  .hyperterm_plugins
+  .hyper_plugins
   .iterm2
   .stylelintrc
   .vimrc
