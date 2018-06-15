@@ -8,3 +8,11 @@ function termauth () {
 function webhost () {
   git remote add webhost $(terminus connection:info --format=list --fields=git_url $1.dev)
 }
+
+function gitsync () {
+  git checkout $1
+  git pull webhost $1
+  git pull origin $1
+  git push webhost $1
+  git push origin $1
+}
