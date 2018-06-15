@@ -75,7 +75,7 @@ module.exports = {
     'hyperterm-bold-tab',
     'hyperterm-title',
     // 'hyperterm-paste'
-    'hyperterm-alternatescroll',
+    // 'hyperterm-alternatescroll',
 
   ],
 
