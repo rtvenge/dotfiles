@@ -49,4 +49,5 @@
 	amend = commit --amend --no-edit
 	follow = log --follow -p
 [gui]
-	recentrepo = /Users/ryantvenge/Kalabox/lawyermarketing/code
+[gui]
+	recentrepo = /Users/ryantvenge/Sites/lando/lawyermarketing

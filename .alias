@@ -13,6 +13,7 @@ alias edithosts='vim /etc/hosts'
 alias pythonserver="python -m SimpleHTTPServer"
 alias v='vagrant'
 alias z='brew --prefix' /etc/profile.d/z.sh
+alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
 # List all instances of Virtual Box
 alias lsbox="ps aux | grep '[V]BoxHeadless' | awk '{ print \$2 }' | xargs -I {} lsof -a -d cwd -p {}"
