@@ -11,7 +11,6 @@
 alias gcwp='git commit -am "upgrading wordpress core/themes/plugins"'
 alias edithosts='vim /etc/hosts'
 alias pythonserver="python -m SimpleHTTPServer"
-alias v='vagrant'
 alias z='brew --prefix' /etc/profile.d/z.sh
 alias did="vim +'normal Go' +'r!date' ~/did.txt"
 
@@ -31,4 +30,3 @@ transfer() {
 }
 
 alias transfer=transfer
-alias drush='/Applications/DevDesktop/tools/drush'

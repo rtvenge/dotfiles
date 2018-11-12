@@ -1,9 +1,0 @@
-#!/bin/bash
-
-#############
-# Ruby Gems #
-#############
-
-gem install sass
-gem install compass
-gem install singularitygs
