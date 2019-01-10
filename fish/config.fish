@@ -2,4 +2,5 @@ source ~/dotfiles/.vars
 source ~/dotfiles/.login
 source ~/dotfiles/.env_vars
 source ~/dotfiles/.alias
-source ~/dotfiles/.terminus
+# TODO: Rewrite for functions for Fish
+# source ~/dotfiles/.terminus
