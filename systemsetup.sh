@@ -26,5 +26,10 @@ curl https://raw.githubusercontent.com/creationix/nvm/v0.18.0/install.sh | bash
 # Disable "last logged in" prompt
 touch ~/.hushlogin
 
+brew install fish
+
 # install ohmyzsh
-curl -L http://install.ohmyz.sh | sh
+curl -L https://get.oh-my.fish | fish
+
+omf install bobthefish
+omf theme bobthefish
