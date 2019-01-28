@@ -1,18 +1,16 @@
-#!/bin/bash
-
-function termauth () {
+function termauth
   terminus auth:login --machine-token=TERMINUS_KEY;
   lando terminus auth:login --machine-token=TERMINUS_KEY;
-}
+end
 
-function webhost () {
-  git remote add webhost $(terminus connection:info --format=list --fields=git_url $1.dev)
-}
+function webhost
+  git remote add webhost (terminus connection:info --format=list --fields=git_url $argv.dev)
+end
 
-function gitsync () {
-  git checkout $1
-  git pull webhost $1
-  git pull origin $1
-  git push webhost $1
-  git push origin $1
-}
+function gitsync
+  git checkout $argv
+  git pull webhost $argv
+  git pull origin $argv
+  git push webhost $argv
+  git push origin $argv
+end
