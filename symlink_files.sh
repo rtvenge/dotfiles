@@ -10,6 +10,7 @@ files=(
   .iterm2
   .stylelintrc
   .vimrc
+  .config
 )
 
 for FILE in "${files[@]}"
