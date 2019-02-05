@@ -10,6 +10,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export PATH="$PATH:/Applications/DevDesktop/mysql/bin"
+export PATH="$PATH:/Users/ryantvenge/vendor/bin:$PATH"
 export EDITOR="/usr/local/bin/vim"
 export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
