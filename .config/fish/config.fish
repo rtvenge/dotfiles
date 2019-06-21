@@ -16,3 +16,5 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+source $HOME/.config/fish/private.fish
