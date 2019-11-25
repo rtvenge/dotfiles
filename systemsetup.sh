@@ -33,3 +33,7 @@ curl -L https://get.oh-my.fish | fish
 
 omf install bobthefish
 omf theme bobthefish
+
+# Install Terminus
+cd ~
+curl -O https://raw.githubusercontent.com/pantheon-systems/terminus-installer/master/builds/installer.phar && php installer.phar install
