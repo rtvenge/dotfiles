@@ -17,4 +17,7 @@ export PATH="$HOME/.composer/vendor/bin:$PATH"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
+# Because of bug in bobthefish
+set -g theme_git_worktree_support no
+
 source $HOME/.config/fish/private.fish

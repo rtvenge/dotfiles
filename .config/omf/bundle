@@ -1,5 +1,5 @@
 package foreign-env
 package nvm
-theme spacefish
 theme bobthefish
 theme default
+theme spacefish
