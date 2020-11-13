@@ -51,3 +51,5 @@
 [gui]
 [gui]
 	recentrepo = /Users/ryantvenge/Sites/lando/lawyermarketing
+[pull]
+	rebase = false
