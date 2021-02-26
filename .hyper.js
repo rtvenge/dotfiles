@@ -28,5 +28,6 @@ module.exports = {
     'hyperterm-title',
     'hyper-search',
     'hyperterm-cobalt2-theme',
+    "hyper-quit"
   ],
 };
