@@ -23,7 +23,7 @@
 [alias]
 	st = status --branch --short
 	wat = log --graph --decorate --oneline -15
-	cd = checkout
+	co = checkout
 	patch = add --patch
 	unstage = reset --hard
 	unstage-patch = reset HEAD --patch
