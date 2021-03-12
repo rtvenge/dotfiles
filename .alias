@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#############
+# My Alias' #
+#############
+
+alias edithosts='vim /etc/hosts'
+alias ip="ifconfig |grep inet"
