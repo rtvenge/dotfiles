@@ -5,40 +5,27 @@
 	editor = vim
 	fileMode = false
 	excludesfile = /Users/ryantvenge/.gitignore_global
-[mergetool]
-	keepBackup = true
-	prompt = false
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
 	tool = Kaleidoscope
-[difftool]
-	prompt = false
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [merge]
 	tool = Kaleidoscope
-[push]
-	default = current
 [url "https://"]
 	insteadOf = git://
 [push]
 	default = simple
-[gui]
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[gui]
+[pull]
+	rebase = false
 [alias]
 	st = status --branch --short
 	wat = log --graph --decorate --oneline -15
-	cd = checkout
+	co = checkout
 	patch = add --patch
-	unstage = reset HEAD --
+	unstage = reset --hard
 	unstage-patch = reset HEAD --patch
 	com = commit -m
 	coma = commit -am
@@ -48,8 +35,3 @@
 	# cwp = commit -am "upgrading wordpress core/themes/plugins"
 	amend = commit --amend --no-edit
 	follow = log --follow -p
-[gui]
-[gui]
-	recentrepo = /Users/ryantvenge/Sites/lando/lawyermarketing
-[pull]
-	rebase = false

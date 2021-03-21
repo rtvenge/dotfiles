@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    shell: "/usr/local/bin/fish",
+    shell: "/usr/local/bin/zsh",
 
     // Appearance
     fontFamily:
@@ -30,6 +30,7 @@ module.exports = {
     "hyper-search",
     // Dark Theme
     'hyperterm-cobalt2-theme',
+    "hyper-quit"
     // Light Theme
     // "hyper-hypest",
   ],
