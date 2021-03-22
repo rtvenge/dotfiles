@@ -1,6 +1,6 @@
 module.exports = {
   config: {
-    shell: "/usr/local/bin/zsh",
+    shell: "/bin/zsh",
 
     // Appearance
     fontFamily:
