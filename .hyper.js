@@ -28,9 +28,11 @@ module.exports = {
     "hyperterm-bold-tab",
     "hyperterm-title",
     "hyper-search",
+    "hyperline",
+    "hyperterm-paste",
     // Dark Theme
-    'hyperterm-cobalt2-theme',
-    "hyper-quit"
+    "hyperterm-cobalt2-theme",
+    "hyper-quit",
     // Light Theme
     // "hyper-hypest",
   ],

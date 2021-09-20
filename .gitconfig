@@ -35,3 +35,5 @@
 	# cwp = commit -am "upgrading wordpress core/themes/plugins"
 	amend = commit --amend --no-edit
 	follow = log --follow -p
+[help]
+	autocorrect = 1
