@@ -1,0 +1,64 @@
+{
+	"Version": "1.5.0.1936",
+	"ID": "0e2c16aefe9cc08c162200c22f70db00dc24175c01cf1689ebbba0ef914e4cb8",
+	"Window": {
+		"Left": 0,
+		"Top": 0,
+		"Width": 600,
+		"Height": 800,
+		"WindowState": "wsNormal" // "wsNormal","wsMinimized","wsMaximized","wsFullScreen"
+	},
+	"View": {
+		"StatusBar": true,
+		"NodePathStatusBar": true
+	},
+	"Style": {
+		"ContentEven": 16448250,
+		"ContentOdd": 16777215,
+		"TreeLines": 14079702,
+		"InformationPanel": 15461355,
+		"SearchResultsFocused": 52479,
+		"SearchResults": 10415359,
+		"String_": 7093511,
+		"Object_": 10254080,
+		"Boolean_": 10695813,
+		"Number_": 25857,
+		"TextLow": 11316396,
+		"TextMedium": 8158332,
+		"TextHigh": 3025705,
+		"FousedLine": 16705479,
+		"Crem": 11358464,
+		"ContentEvenDark": 2498846,
+		"ContentOddDark": 2038295,
+		"TreeLinesDark": 4341051,
+		"InformationPanelDark": 3025449,
+		"SearchResultsFocusedDark": 23967,
+		"SearchResultsDark": 1258314,
+		"StringDark": 16703865,
+		"ObjectDark": 16627243,
+		"BooleanDark": 12871935,
+		"NumberDark": 6414953,
+		"TextLowDark": 7566455,
+		"TextMediumDark": 11579053,
+		"TextHighDark": 16777215,
+		"FousedLineDark": 8930066,
+		"CremDark": 16634926
+	},
+	"AutoRefresh": {
+		"Active": true,
+		"Silent": true,
+		"Instant": false
+	},
+	"Recent": {
+		"List": ["/Users/ryantvenge/Desktop/bulk-403172458578.jsonl","/Users/ryantvenge/Desktop/bulk-403176063058.jsonl","/Users/ryantvenge/Desktop/bulk-406611361874.jsonl"],
+		"Limit": 10
+	},
+	"Logging": 1,
+	"UpdateInformation": {
+		"MinVersion": "1.1.0.1756",
+		"Version": "1.5.0.1813",
+		"Message": "New Version Available",
+		"URL": "https://dadroit.com/download"
+	},
+	"CheckForUpdate": true
+}
