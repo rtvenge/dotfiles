@@ -17,6 +17,13 @@ function gitsync () {
   git push origin $1
 }
 
+function gitflowsync () {
+  git checkout master
+  git push origin master
+  git checkout develop
+  git push origin develop
+}
+
 function clonesite () {
   cd ~/Sites/lando
   git clone git@gitlab.com:hoverboard88/client-sites/$1.git
