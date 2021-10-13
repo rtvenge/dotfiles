@@ -30,6 +30,7 @@ module.exports = {
     "hyper-search",
     "hyperline",
     "hyperterm-paste",
+    "hyper-tabs-autohide",
     // Dark Theme
     "hyperterm-cobalt2-theme",
     "hyper-quit",
