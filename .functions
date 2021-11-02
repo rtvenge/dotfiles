@@ -24,6 +24,11 @@ function gitflowsync () {
   git push origin develop
 }
 
+function npmbuild () {
+  npm run build
+  git commit -am "Adding compiled files."
+}
+
 function clonesite () {
   cd ~/Sites/lando
   git clone git@gitlab.com:hoverboard88/client-sites/$1.git
