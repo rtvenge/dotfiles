@@ -65,6 +65,7 @@ brew install freetype
 brew install libidn
 brew install shellcheck
 brew install mas
+brew install pantheon-systems/external/terminus
 
 # Casks
 brew cask install firefox
