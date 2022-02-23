@@ -4,3 +4,4 @@ npm-debug.log.*
 configstore
 .private
 .config/blt
+private.yml
