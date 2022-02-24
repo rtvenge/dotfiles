@@ -1,0 +1,59 @@
+name: Scripts
+parent: default
+
+matches:
+  - trigger: ";log"
+    replace: "{{output}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+      - name: output
+        type: script
+        params:
+          args:
+            - python3
+            - "%CONFIG%/scripts/login.py"
+  - trigger: ";title"
+    replace: "{{output}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+      - name: output
+        type: script
+        params:
+          args:
+            - python3
+            - "%CONFIG%/scripts/title.py"
+  - trigger: ";low"
+    replace: "{{output}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+      - name: output
+        type: script
+        params:
+          args:
+            - python3
+            - "%CONFIG%/scripts/lower.py"
+  - trigger: ";adm"
+    replace: "{{output}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+      - name: output
+        type: script
+        params:
+          args:
+            - python3
+            - "%CONFIG%/scripts/admin.py"
+  - trigger: ";root"
+    replace: "{{output}}"
+    vars:
+      - name: clipboard
+        type: clipboard
+      - name: output
+        type: script
+        params:
+          args:
+            - python3
+            - "%CONFIG%/scripts/root.py"

@@ -1,0 +1,18 @@
+name: URLs
+parent: default
+
+matches:
+  - trigger: ";del"
+    replace: "https://www.godaddy.com/help/invite-a-delegate-to-access-my-godaddy-account-12376"
+  - trigger: ";mcal"
+    replace: "https://calendly.com/mbiersdo/"
+  - trigger: ";cal"
+    replace: "https://calendly.com/rtvenge"
+  - trigger: ";web"
+    replace: "https://hoverboardstudios.com"
+  - trigger: ";loc"
+    replace: "https://localhost:3000"
+  - trigger: ";1ty"
+    replace: "https://onetimesecret.com"
+  - trigger: ";place"
+    replace: "https://place-hold.it/$|$/"
