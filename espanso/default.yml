@@ -6,9 +6,14 @@
 
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
+
+secure_input_notification: false
+toggle_key: RIGHT_CTRL
 matches:
   - trigger: ";lyt"
     replace: "Love you too! 😘"
+  - trigger: ";np"
+    replace: "No problem!"
   - trigger: ";misc"
     replace: "miscellaneous"
   - trigger: ";sg"
@@ -19,6 +24,8 @@ matches:
     replace: "Matt Biersdorf"
   - trigger: ";wiz"
     replace: "wysiwyg"
+  - trigger: ";;hb"
+    replace: "Hoverboard"
   - trigger: ";vv"
     replace: "{{clipboard}}"
     vars:
