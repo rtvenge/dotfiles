@@ -10,6 +10,7 @@ files=(
   .iterm2
   .stylelintrc
   .vimrc
+  .tmux.conf
 )
 
 for FILE in "${files[@]}"
@@ -58,3 +59,5 @@ for FILE in "${files[@]}"
 
   # Setup Vundle
   git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+ln -s ~/dotfiles/espanso ~/Library/Preferences/espanso
