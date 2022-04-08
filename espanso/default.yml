@@ -14,6 +14,8 @@ matches:
     replace: "Love you too! 😘"
   - trigger: ";np"
     replace: "No problem!"
+  - trigger: ";un"
+    replace: "rtvenge"
   - trigger: ";misc"
     replace: "miscellaneous"
   - trigger: ";sg"
@@ -26,6 +28,8 @@ matches:
     replace: "wysiwyg"
   - trigger: ";;hb"
     replace: "Hoverboard"
+  - trigger: ";hbback"
+    replace: "hoverboard-hosting-backups"
   - trigger: ";vv"
     replace: "{{clipboard}}"
     vars:
