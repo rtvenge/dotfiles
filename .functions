@@ -41,6 +41,7 @@ function clonesite () {
 
 function gitbranchcleanup () {
   git branch | grep -v " master$" | grep -v " main$" | grep -v " develop$" | grep -v " dev$" | xargs git branch -D
+  git remote prune origin
 }
 
 # Troubleshoot load time
