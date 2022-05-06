@@ -39,6 +39,10 @@ function clonesite () {
   lando pull --code=none --database=live --files=live
 }
 
+function gitbranchcleanup () {
+  git branch | grep -v " master$" | grep -v " main$" | grep -v " develop$" | xargs git branch -D
+}
+
 # Troubleshoot load time
 timezsh() {
   shell=${1-$SHELL}
