@@ -24,6 +24,15 @@ function gitflowsync () {
   git push origin develop
 }
 
+function gitpushtomain () {
+  git checkout dev
+  git pull origin dev
+  git checkout main
+  git pull origin main
+  git merge dev
+  git push origin main
+}
+
 function npmbuild () {
   npm run build
   git commit -am "Adding compiled files."
