@@ -7,7 +7,7 @@ matches:
   - trigger: ";mcal"
     replace: "https://calendly.com/mbiersdo/"
   - trigger: ";cal"
-    replace: "https://calendly.com/rtvenge"
+    replace: "https://hub.flexibits.com/openings/rtvenge/30"
   - trigger: ";web"
     replace: "https://hoverboardstudios.com"
   - trigger: ";loc"
