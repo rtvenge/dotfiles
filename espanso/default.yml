@@ -43,5 +43,3 @@ matches:
         type: "clipboard"
   - trigger: ";a11y"
     replace: "accessibility"
-  - trigger: ";lorem"
-    replace: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse imperdiet, dolor sed commodo finibus, libero ante malesuada ligula, sit amet imperdiet ex nulla ac ex. Suspendisse potenti. Fusce a risus sit amet lacus dictum maximus ultrices eu augue. Donec volutpat convallis nulla, non pellentesque metus euismod et. Aenean faucibus dui sit amet est imperdiet, vitae pulvinar velit pretium. Cras ut nulla malesuada, convallis urna in, facilisis ante. Cras nec venenatis ligula. Quisque mollis ac felis in cursus. Nunc ac convallis est. Donec interdum vehicula velit, cursus pellentesque mauris posuere et. Curabitur pulvinar dui et eleifend viverra. Aliquam viverra accumsan nibh, vel mollis magna suscipit ac. Mauris et elit vestibulum, rhoncus augue et, ultricies enim."
