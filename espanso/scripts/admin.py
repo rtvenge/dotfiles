@@ -8,6 +8,8 @@ replacement = re.search('https?:\/\/[^\/]*', os.environ["ESPANSO_CLIPBOARD"])
 
 if 'lndo.site' in replacement.group(0):
   print(replacement.group(0) + '/hb_admin')
+elif 'hbserver.dev' in replacement.group(0):
+  print(replacement.group(0) + '/hb_admin')
 else:
   resp = requests.get(replacement.group(0) + '/admin')
 

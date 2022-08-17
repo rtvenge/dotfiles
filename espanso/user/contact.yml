@@ -6,6 +6,8 @@ matches:
     replace: "Ryan Tvenge"
   - trigger: ";em"
     replace: "ryan@tvenge.org"
+  - trigger: ";news"
+    replace: "ryan+newsletter@tvenge.org"
   - trigger: ";wpem"
     replace: "organizers@wpseattle.org"
   - trigger: ";hbph"

@@ -43,3 +43,5 @@ matches:
         type: "clipboard"
   - trigger: ";a11y"
     replace: "accessibility"
+  - trigger: ";;wp"
+    replace: "WordPress"
