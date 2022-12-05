@@ -23,7 +23,7 @@ matches:
   - trigger: ";ph"
     replace: "651-707-5465"
   - trigger: ";addr"
-    replace: "3002 SW Hinds St Seattle WA 98126"
+    replace: "2707 W 54th St, Minneapolis, MN 55410"
   - trigger: ";zip"
     replace: "98126"
   - trigger: ";mattem"

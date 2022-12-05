@@ -18,8 +18,8 @@ function gitsync () {
 }
 
 function gitflowsync () {
-  git checkout master
-  git push origin master
+  git checkout main
+  git push origin main
   git checkout develop
   git push origin develop
 }

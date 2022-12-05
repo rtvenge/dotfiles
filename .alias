@@ -8,3 +8,4 @@ alias edithosts='vim /etc/hosts'
 alias ip="ifconfig |grep inet"
 alias l="exa -lah"
 alias ls="exa"
+# alias tig="gitui"
