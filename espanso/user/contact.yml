@@ -25,7 +25,7 @@ matches:
   - trigger: ";addr"
     replace: "2707 W 54th St, Minneapolis, MN 55410"
   - trigger: ";zip"
-    replace: "98126"
+    replace: "55410"
   - trigger: ";mattem"
     replace: "matt@hoverboardstudios.com"
   - trigger: ";hbem"
