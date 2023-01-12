@@ -1,9 +1,0 @@
-name: Markdown
-parent: default
-
-matches:
-  - trigger: ";mdl"
-    replace: "[$|$]({{clipboard}})"
-    vars:
-      - name: "clipboard"
-        type: "clipboard"
