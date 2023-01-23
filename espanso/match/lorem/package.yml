@@ -1,8 +1,5 @@
 # Lorem Ipsum
 
-name: lorem
-parent: default
-
 matches:
   # Sentence
   - trigger: ">lorem"
