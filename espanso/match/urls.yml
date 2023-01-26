@@ -16,3 +16,5 @@ matches:
     replace: "https://onetimesecret.com"
   - trigger: ;place
     replace: "https://place-hold.it/$|$/"
+  - trigger: ;mast
+    replace: "https://mastodon.xyz/@RyanT"
