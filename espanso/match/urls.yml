@@ -17,4 +17,4 @@ matches:
   - trigger: ;place
     replace: "https://place-hold.it/$|$/"
   - trigger: ;mast
-    replace: "https://mastodon.xyz/@RyanT"
+    replace: "https://mastodon.social/@rtvenge"
