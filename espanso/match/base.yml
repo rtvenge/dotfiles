@@ -22,6 +22,10 @@ matches:
     replace: Hoverboard
   - trigger: ;spin4
     replace: 23.239.30.82
+  - trigger: ;spinhigh4
+    replace: 45.79.108.80
+  - trigger: ;spinhigh6
+    replace: "2600:3c01::f03c:93ff:fea3:80e0"
   - trigger: ;spin6
     replace: "2600:3c00::f03c:93ff:feb0:e523"
   - trigger: ;hbback
@@ -32,7 +36,7 @@ matches:
       DB_USER=database_user
       DB_PASSWORD=database_password
       DB_PREFIX=wp_
-      
+
       WP_ENV=development
       WP_HOME=https://SITE_NAME.hbserver.dev
       WP_SITEURL=${WP_HOME}

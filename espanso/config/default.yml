@@ -3,3 +3,4 @@
 
 secure_input_notification: false
 toggle_key: RIGHT_CTRL
+search_shortcut: ALT+SHIFT+SPACE
