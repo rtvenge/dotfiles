@@ -3,17 +3,20 @@
 import re
 import os
 import requests
+import urllib.parse
 
-replacement = re.search('https?:\/\/[^\/]*', os.environ["ESPANSO_CLIPBOARD"])
+fullURL = os.environ["ESPANSO_CLIPBOARD"]
+rootURL = re.search('https?:\/\/[^\/]*', fullURL)
+encodedURL = urllib.parse.quote(fullURL, safe="")
 
-if 'lndo.site' in replacement.group(0):
-  print(replacement.group(0) + '/hb_admin')
-elif 'hbserver.dev' in replacement.group(0):
-  print(replacement.group(0) + '/hb_admin')
+if 'lndo.site' in rootURL.group(0):
+  print(rootURL.group(0) + '/hb_admin?redirect_to=' + encodedURL + '&reauth=1')
+elif 'hbserver.dev' in rootURL.group(0):
+  print(rootURL.group(0) + '/hb_admin?redirect_to=' + encodedURL + '&reauth=1')
 else:
-  resp = requests.get(replacement.group(0) + '/admin')
+  resp = requests.get(rootURL.group(0) + '/wp-login.php?redirect_to=' + encodedURL + '&reauth=1')
 
   if resp.status_code == 404:
-    print(replacement.group(0) + '/hb_admin')
+    print(rootURL.group(0) + '/hb_admin?redirect_to=' + encodedURL + '&reauth=1')
   else:
-    print(replacement.group(0) + '/admin')
+    print(rootURL.group(0) + '/wp-login.php?redirect_to=' + encodedURL + '&reauth=1')
