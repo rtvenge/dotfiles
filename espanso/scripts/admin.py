@@ -7,16 +7,15 @@ import urllib.parse
 
 fullURL = os.environ["ESPANSO_CLIPBOARD"]
 rootURL = re.search('https?:\/\/[^\/]*', fullURL)
-encodedURL = urllib.parse.quote(fullURL, safe="")
 
 if 'lndo.site' in rootURL.group(0):
-  print(rootURL.group(0) + '/hb_admin?redirect_to=' + encodedURL + '&reauth=1')
+  print(rootURL.group(0) + '/hb_admin')
 elif 'hbserver.dev' in rootURL.group(0):
-  print(rootURL.group(0) + '/hb_admin?redirect_to=' + encodedURL + '&reauth=1')
+  print(rootURL.group(0) + '/hb_admin')
 else:
-  resp = requests.get(rootURL.group(0) + '/wp-login.php?redirect_to=' + encodedURL + '&reauth=1')
+  resp = requests.get(rootURL.group(0) + '/wp-login.php')
 
   if resp.status_code == 404:
-    print(rootURL.group(0) + '/hb_admin?redirect_to=' + encodedURL + '&reauth=1')
+    print(rootURL.group(0) + '/hb_admin')
   else:
-    print(rootURL.group(0) + '/wp-login.php?redirect_to=' + encodedURL + '&reauth=1')
+    print(rootURL.group(0) + '/wp-login.php')
