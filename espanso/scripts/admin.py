@@ -13,9 +13,9 @@ if 'lndo.site' in rootURL.group(0):
 elif 'hbserver.dev' in rootURL.group(0):
   print(rootURL.group(0) + '/hb_admin')
 else:
-  resp = requests.get(rootURL.group(0) + '/wp-login.php')
+  resp = requests.get(rootURL.group(0) + '/wp-admin/')
 
   if resp.status_code == 404:
     print(rootURL.group(0) + '/hb_admin')
   else:
-    print(rootURL.group(0) + '/wp-login.php')
+    print(rootURL.group(0) + '/wp-admin/')

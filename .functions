@@ -22,6 +22,7 @@ function gitflowsync () {
   git push origin main
   git checkout develop
   git push origin develop
+  git push origin --tags
 }
 
 function gitpushtomain () {
