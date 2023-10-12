@@ -32,6 +32,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/mas
 
 # Install everything else
 brew install brew-cask
+brew install bat
+brew install diff-so-fancy
 brew install gcc
 brew install libmpc
 brew install trash
@@ -65,7 +67,6 @@ brew install freetype
 brew install libidn
 brew install shellcheck
 brew install mas
-brew install pantheon-systems/external/terminus
 
 # Casks
 brew cask install firefox
@@ -73,7 +74,6 @@ brew cask install slack
 brew cask install alfred
 brew cask install boot2docker
 brew cask install sourcetree
-brew cask install sequel-pro
 brew cask install quitter
 brew cask install bartender
 brew cask install encryptmeamphetamine
@@ -81,13 +81,8 @@ brew cask install tripmode
 brew cask install fantastical
 brew cask install superduper
 brew cask install 1password
-brew cask install mamp
-brew cask install dropbox
 brew cask install transmit
-brew cask install virtualbox
 brew cask install hyper
-brew cask install flux
-brew cask install emojipedia
 
 # Remove outdated versions from the cellar
 brew cleanup

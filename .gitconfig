@@ -1,10 +1,13 @@
 [user]
 	name = Ryan Tvenge
 	email = ryan@hoverboardstudios.com
+	# TODO: Doesn't work.
+	# signingkey = $GIT_SIGNINGKEY
 [core]
 	editor = vim
 	fileMode = false
 	excludesfile = /Users/ryantvenge/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
@@ -37,3 +40,27 @@
 	follow = log --follow -p
 [help]
 	autocorrect = 1
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	# TODO: Doesn't work.
+	# gpgsign = true
+[interactive]
+	diffFilter = diff-so-fancy --patch
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

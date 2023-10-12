@@ -55,7 +55,12 @@ function gitbranchcleanup () {
 }
 
 # Troubleshoot load time
-timezsh() {
+function timezsh() {
   shell=${1-$SHELL}
   for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
+function fcd() {
+  local dir
+  dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf +m) && cd "$dir"
 }

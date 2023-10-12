@@ -1,0 +1,3 @@
+#!/bin/bash
+
+GIT_SIGNINGKEY="ssh-rsa FULLKEY"
