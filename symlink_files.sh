@@ -4,13 +4,14 @@ files=(
   .hyper.js
   .editorconfig
   .eslintrc
+  .fzf.zsh
   .gitconfig
   .gitignore_global
   .hyper_plugins
   .iterm2
   .stylelintrc
-  .vimrc
   .tmux.conf
+  .vimrc
 )
 
 for FILE in "${files[@]}"
