@@ -1,8 +1,6 @@
 [user]
 	name = Ryan Tvenge
 	email = ryan@hoverboardstudios.com
-	# TODO: Doesn't work.
-	# signingkey = $GIT_SIGNINGKEY
 [core]
 	editor = vim
 	fileMode = false
@@ -40,13 +38,6 @@
 	follow = log --follow -p
 [help]
 	autocorrect = 1
-[gpg]
-	format = ssh
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-[commit]
-	# TODO: Doesn't work.
-	# gpgsign = true
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [color]
