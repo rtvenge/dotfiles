@@ -55,3 +55,15 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+
+# Put this in your ~/.config/git/config file so your signingkey isn't in the repo.
+# [user]
+# 	name = Ryan Tvenge
+# 	email = ryan@hoverboardstudios.com
+# 	signingkey = "ssh-rsa ..."
+# [gpg]
+# 	format = ssh
+# [gpg "ssh"]
+# 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+# [commit]
+# 	gpgsign = true
