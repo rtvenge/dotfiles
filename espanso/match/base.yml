@@ -24,6 +24,8 @@ matches:
     replace: 23.239.30.82
   - trigger: ;spinhigh4
     replace: 45.79.108.80
+  - trigger: ;pi
+    replace: 192.168.4.110
   - trigger: ;spinhigh6
     replace: "2600:3c01::f03c:93ff:fea3:80e0"
   - trigger: ;spin6
