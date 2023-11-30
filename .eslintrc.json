@@ -5,10 +5,6 @@
   },
   "extends": "airbnb",
   "rules": {
-    # "indent": [
-    #   2,
-    #   2
-    # ],
     "comma-dangle": [
       1,
       "never"
