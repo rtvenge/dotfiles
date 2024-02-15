@@ -1,14 +1,11 @@
 module.exports = {
   config: {
+    catppuccinTheme: 'mocha',
     shell: "/bin/zsh",
 
     // Appearance
     fontFamily:
-      '"Perplexed", "Source Code Pro for Powerline", "DejaVu Sans Mono", "Lucida Console", monospace',
-    cursorColor: "#f4d300",
-    backgroundColor: "#173448",
-    borderColor: "#ffc600",
-    wickedBorderColor: "#173448",
+      '"BlexMono Nerd Font", "Perplexed", "Source Code Pro for Powerline", "DejaVu Sans Mono", "Lucida Console", monospace',
     fontSize: 14,
     cursorShape: "BEAM",
 
@@ -28,6 +25,7 @@ module.exports = {
     "hyperline",
     // Dark Theme
     "hyperterm-cobalt2-theme",
+    'hypurr#latest',
     "hyper-quit",
     // Light Theme
     // "hyper-hypest",
