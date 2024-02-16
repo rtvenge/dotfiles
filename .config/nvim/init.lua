@@ -76,6 +76,7 @@ require('lazy').setup({
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'f-person/git-blame.nvim',
+  'mattn/emmet-vim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -320,6 +321,10 @@ require('lazy').setup({
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.cmd([[
+  autocmd FileType php setlocal filetype=html
+]])
+
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
@@ -485,6 +490,8 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sG', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
+
+vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>', {noremap = true, silent = true, desc = 'Toggle Tree View'})
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
