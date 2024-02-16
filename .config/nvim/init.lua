@@ -72,6 +72,10 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
+  'github/copilot.vim',
+  'nvim-tree/nvim-tree.lua',
+  'nvim-tree/nvim-web-devicons',
+  'f-person/git-blame.nvim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -214,7 +218,7 @@ require('lazy').setup({
     end,
   },
 
-  { "catppuccin/nvim", name = "catppuccin", priority = 1001 },
+  { "catppuccin/nvim", name = "catppuccin-mocha", priority = 1001 },
 
   {
     -- Set lualine as statusline
@@ -281,6 +285,9 @@ require('lazy').setup({
     },
   },
 
+  -- Doesn't seem to be working.
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+
   {
     -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -309,7 +316,28 @@ require('lazy').setup({
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
 
--- vim.cmd.colorscheme "catppuccin-mocha"
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -328,6 +356,8 @@ vim.o.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.o.breakindent = true
 
+vim.g.nvim_tree_auto_open = 1
+
 -- Save undo history
 vim.o.undofile = true
 
@@ -341,6 +371,7 @@ vim.wo.signcolumn = 'yes'
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
+vim.o.relativenumber = true
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
