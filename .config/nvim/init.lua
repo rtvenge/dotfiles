@@ -353,6 +353,9 @@ vim.wo.number = true
 -- Enable mouse mode
 vim.o.mouse = 'a'
 
+vim.opt.list = true
+vim.opt.listchars = { tab = "▸\\ ", trail = "·", space = "·" }
+
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
