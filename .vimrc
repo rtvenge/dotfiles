@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'airblade/vim-gitgutter'
+
 Plugin 'hail2u/vim-css3-syntax'
 autocmd FileType html,css,blade,php,javascript,js,xml,php.css.html EmmetInstall
 

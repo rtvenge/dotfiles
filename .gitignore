@@ -5,3 +5,4 @@ configstore
 .private
 .config/blt
 private.yml
+.config/github-copilot/hosts.json

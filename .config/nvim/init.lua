@@ -72,17 +72,19 @@ require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
-  'github/copilot.vim',
-  'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons',
-  'f-person/git-blame.nvim',
-  'mattn/emmet-vim',
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
+  'github/copilot.vim',
+  'nvim-tree/nvim-tree.lua',
+  'nvim-tree/nvim-web-devicons',
+  'f-person/git-blame.nvim',
+  'mattn/emmet-vim',
+  'vim-syntastic/syntastic',
+  'neoclide/coc.nvim',
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -321,9 +323,9 @@ require('lazy').setup({
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd([[
-  autocmd FileType php setlocal filetype=html
-]])
+-- vim.cmd([[
+--   autocmd FileType php setlocal filetype=html
+-- ]])
 
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
