@@ -84,7 +84,6 @@ require('lazy').setup({
   'f-person/git-blame.nvim',
   'mattn/emmet-vim',
   'vim-syntastic/syntastic',
-  'neoclide/coc.nvim',
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -100,6 +99,22 @@ require('lazy').setup({
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
     },
+  },
+
+  -- Add coc.nvim
+  {
+    'neoclide/coc.nvim',
+    branch = 'release',
+    run = 'yarn install --frozen-lockfile',
+  },
+
+  -- add this to your lua/plugins.lua, lua/plugins/init.lua,  or the file you keep your other plugins:
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+        -- add any options heredd
+    },
+    lazy = false,
   },
 
   {

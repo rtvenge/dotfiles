@@ -29,5 +29,6 @@ module.exports = {
     "hyper-quit",
     // Light Theme
     // "hyper-hypest",
+    "hyper-hide-title"
   ],
 };
