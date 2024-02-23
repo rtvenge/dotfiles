@@ -84,7 +84,6 @@ require('lazy').setup({
   'f-person/git-blame.nvim',
   'mattn/emmet-vim',
   'vim-syntastic/syntastic',
-  'tanvirtin/vgit.nvim',
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -355,6 +354,9 @@ require('lazy').setup({
 -- disable netrw at the very start of your init.lua
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- vim.cmd([[
 --   autocmd FileType php setlocal filetype=html
@@ -752,15 +754,15 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    -- ['<Tab>'] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif luasnip.expand_or_locally_jumpable() then
-    --     luasnip.expand_or_jump()
-    --   else
-    --     fallback()
-    --   end
-    -- end, { 'i', 's' }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_locally_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
     ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
