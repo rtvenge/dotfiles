@@ -2,3 +2,9 @@
 package.json
 .hyper_plugins
 versions.json
+zsh
+bin
+.git
+README.md
+brew
+espanso
