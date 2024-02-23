@@ -14,5 +14,4 @@ source ~/dotfiles/zsh/.env_vars
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/zsh/.alias
 source ~/dotfiles/zsh/.functions
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source ~/dotfiles/zsh/.fzf.zsh
