@@ -27,6 +27,7 @@ module.exports = {
     "hyperterm-cobalt2-theme",
     'hypurr#latest',
     "hyper-quit",
+    "hypurr#latest",
     // Light Theme
     // "hyper-hypest",
     "hyper-hide-title"
