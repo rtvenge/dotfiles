@@ -44,6 +44,7 @@ require('lazy').setup({
   'f-person/git-blame.nvim',
   'mattn/emmet-vim',
   'vim-syntastic/syntastic',
+  'dense-analysis/ale',
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
