@@ -1,3 +1,5 @@
+-- NOTE: `brew install rg fd` required for live search.
+
 require('telescope').setup {
   defaults = {
     mappings = {

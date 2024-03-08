@@ -1,3 +1,6 @@
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -26,6 +29,7 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.breakindent = true
 
 vim.g.nvim_tree_auto_open = 1
+vim.g.nvim_tree_filters_dotfiles = 1
 
 -- Save undo history
 vim.o.undofile = true
