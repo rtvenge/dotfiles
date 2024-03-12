@@ -1,4 +1,5 @@
 act
+ata
 bat
 diff-so-fancy
 exa
@@ -8,8 +9,10 @@ ggshield
 gh
 git-flow-avh
 git-lfs
+htop
 jq
 luajit-openresty
+mas
 neovim
 pantheon-systems/external/terminus
 php

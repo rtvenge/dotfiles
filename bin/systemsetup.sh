@@ -6,6 +6,7 @@ xcode-select --install
 #homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# `brew leaves > ~/dotfiles/brew/leaves.txt` to update file
 xargs brew install < ~/dotfiles/brew/leaves.txt
 
 git clone https://github.com/bobthecow/git-flow-completion ~/.oh-my-zsh/custom/plugins/git-flow-completion
