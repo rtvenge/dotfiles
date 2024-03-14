@@ -6,7 +6,7 @@ import requests
 import urllib.parse
 
 fullURL = os.environ["ESPANSO_CLIPBOARD"]
-rootURL = re.search('https?:\/\/[^\/]*', fullURL)
+rootURL = re.search('https?://[^/]*', fullURL)
 encodedURL = urllib.parse.quote(fullURL, safe="")
 
 if 'lndo.site' in rootURL.group(0):

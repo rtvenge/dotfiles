@@ -6,7 +6,7 @@ import requests
 import urllib.parse
 
 fullURL = os.environ["ESPANSO_CLIPBOARD"]
-rootURL = re.search('https?:\/\/[^\/]*', fullURL)
+rootURL = re.search('https?://[^/]*', fullURL)
 
 if 'lndo.site' in rootURL.group(0):
   print(rootURL.group(0) + '/hb_admin')
