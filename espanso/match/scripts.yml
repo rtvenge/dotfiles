@@ -11,7 +11,7 @@ matches:
         type: script
         params:
           args:
-            - python3
+            - /Users/ryantvenge/.pyenv/shims/python3
             - "%CONFIG%/scripts/login.py"
   - trigger: ;title
     replace: "{{output}}"
@@ -22,7 +22,7 @@ matches:
         type: script
         params:
           args:
-            - python3
+            - /Users/ryantvenge/.pyenv/shims/python3
             - "%CONFIG%/scripts/title.py"
   - trigger: ;low
     replace: "{{output}}"
@@ -33,7 +33,7 @@ matches:
         type: script
         params:
           args:
-            - python3
+            - /Users/ryantvenge/.pyenv/shims/python3
             - "%CONFIG%/scripts/lower.py"
   - trigger: ;cap
     replace: "{{output}}"
@@ -44,7 +44,7 @@ matches:
         type: script
         params:
           args:
-            - python3
+            - /Users/ryantvenge/.pyenv/shims/python3
             - "%CONFIG%/scripts/cap.py"
   - trigger: ;adm
     replace: "{{output}}"
@@ -55,7 +55,7 @@ matches:
         type: script
         params:
           args:
-            - python3
+            - /Users/ryantvenge/.pyenv/shims/python3
             - "%CONFIG%/scripts/admin.py"
   - trigger: ;root
     replace: "{{output}}"
@@ -66,5 +66,5 @@ matches:
         type: script
         params:
           args:
-            - python3
+            - /Users/ryantvenge/.pyenv/shims/python3
             - "%CONFIG%/scripts/root.py"
