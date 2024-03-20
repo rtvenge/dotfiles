@@ -1,4 +1,10 @@
 require("nvim-tree").setup({
+  tab = {
+    sync = {
+      open = true,
+      close = true,
+    }
+  },
   sort = {
     sorter = "case_sensitive",
   },
