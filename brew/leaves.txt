@@ -21,6 +21,7 @@ php@8.0
 php@8.1
 pyenv
 python@3.9
+rg
 stow
 teamookla/speedtest/speedtest
 tig
