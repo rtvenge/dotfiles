@@ -19,11 +19,8 @@ function gitsync () {
 
 function gitflowsync () {
   git checkout main
-  git push gitlab main
   git push origin main
   git checkout develop
-  git push gitlab develop
-  git push gitlab --tags
   git push origin develop
   git push origin --tags
 }

@@ -15,3 +15,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/zsh/.alias
 source ~/dotfiles/zsh/.functions
 source ~/dotfiles/zsh/.fzf.zsh
+
+# Lando
+export PATH="/Users/ryantvenge/.lando/bin${PATH+:$PATH}"; #landopath
