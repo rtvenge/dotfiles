@@ -18,6 +18,17 @@ local servers = {
   -- rust_analyzer = {},
   -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
+  emmet_ls = {
+    filetypes = { 'html', 'twig', 'hbs', 'php' },
+    init_options = {
+      html = {
+        options = {
+          -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79
+          -- ["bem.enabled"] = true
+        },
+      },
+    },
+  },
 
   lua_ls = {
     Lua = {
