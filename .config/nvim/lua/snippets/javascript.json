@@ -1,0 +1,17 @@
+{
+  "Print to console": {
+    "prefix": "log",
+    "body": [
+      "console.log($1)"
+    ],
+    "description": "Log output to console"
+  },
+
+  "Self-Invoking Function": {
+    "prefix": "siaf",
+    "body": [
+      "(() => {\n  $1\n})();"
+    ],
+    "description": "Self-invoking annonymous function"
+  }
+}
