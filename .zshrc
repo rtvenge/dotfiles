@@ -14,7 +14,10 @@ source ~/dotfiles/zsh/.env_vars
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/zsh/.alias
 source ~/dotfiles/zsh/.functions
-source ~/dotfiles/zsh/.fzf.zsh
+# check if homebrew is installed before sourcing.
+if [ -d "/opt/homebrew" ]; then
+  source ~/dotfiles/zsh/.fzf.zsh
+fi
 
 # Lando
 export PATH="/Users/ryantvenge/.lando/bin${PATH+:$PATH}"; #landopath
