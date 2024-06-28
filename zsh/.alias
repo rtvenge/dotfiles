@@ -6,7 +6,7 @@
 
 alias edithosts='vim /etc/hosts'
 alias ipaddr="ifconfig |grep inet"
-alias l="exa -lah"
+alias l="exa -lah --git --icons"
 alias ls="exa"
 alias cat="bat"
 alias top="htop"
