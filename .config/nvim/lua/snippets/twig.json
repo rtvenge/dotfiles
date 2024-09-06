@@ -1,7 +1,0 @@
-{
-  "bem": {
-    "prefix": "bem",
-    "body": ["${1:div}.${TM_FILENAME_BASE/\\.html//}${2:__}"],
-    "description": "Block for BEM"
-  }
-}
