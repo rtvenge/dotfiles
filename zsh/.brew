@@ -34,6 +34,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/guarinogabriel/mac-cli/mas
 brew install brew-cask
 brew install bat
 brew install diff-so-fancy
+brew install eza
 brew install gcc
 brew install libmpc
 brew install trash
