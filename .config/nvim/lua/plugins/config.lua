@@ -13,6 +13,25 @@ return {
     },
   },
 
+  {
+    "dense-analysis/ale",
+    config = function()
+      -- TODO: Don't want phpcs on every site but this is required for init.vim to work on the project. 🤷
+      vim.g.ale_fix_on_save = 1
+      vim.g.ale_php_phpcbf_executable = "~/.composer/vendor/bin/phpcbf"
+      vim.g.ale_php_phpcbf_standard = "~/.composer/vendor/wp-coding-standards/wpcs/WordPress"
+      vim.g.ale_php_phpcs_standard = "~/.composer/vendor/wp-coding-standards/wpcs/WordPress"
+      vim.g.ale_php_phpcs_executable = "~/.composer/vendor/bin/phpcs"
+      vim.g.ale_php_phpcs_use_global = 0
+      vim.g.ale_fixers = {
+        php = { "phpcbf" },
+      }
+      vim.g.ale_linters = {
+        php = { "phpcs" },
+      }
+    end,
+  },
+
   -- change trouble config
   {
     "folke/trouble.nvim",
@@ -20,22 +39,6 @@ return {
     opts = { use_diagnostic_signs = true },
   },
 
-  -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
-
-  { "dense-analysis/ale" },
-
-  -- override nvim-cmp and add cmp-emoji
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji" },
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      table.insert(opts.sources, { name = "emoji" })
-    end,
-  },
-
-  -- change some telescope options and a keymap to browse plugin files
   {
     "nvim-telescope/telescope.nvim",
     keys = {
