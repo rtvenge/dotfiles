@@ -72,3 +72,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[safe]
+	# Added because composer was complaining about changing branches on dev modules
+	directory = *
