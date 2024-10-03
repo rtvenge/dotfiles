@@ -29,3 +29,4 @@ tmux
 wget
 yarn
 youtube-dl
+zoxide
