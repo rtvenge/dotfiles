@@ -10,6 +10,7 @@ gh
 git-flow-avh
 git-lfs
 htop
+jandedobbeleer/oh-my-posh/oh-my-posh
 jq
 luajit-openresty
 mas
