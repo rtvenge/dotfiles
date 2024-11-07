@@ -25,9 +25,18 @@ return {
       vim.g.ale_php_phpcs_use_global = 0
       vim.g.ale_fixers = {
         php = { "phpcbf" },
+        javascript = { "prettier", "eslint" }, -- Use both prettier and eslint as fixers
+        typescript = { "prettier", "eslint" },
+        vue = { "prettier", "eslint" },
+        css = { "stylelint" },
+        markdown = { "marksman" },
       }
       vim.g.ale_linters = {
         php = { "phpcs" },
+        javascript = { "eslint" }, -- Add more languages as needed
+        typescript = { "eslint" },
+        vue = { "eslint" },
+        css = { "stylelint" },
       }
     end,
   },
