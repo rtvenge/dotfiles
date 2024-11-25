@@ -5,6 +5,7 @@ source ~/dotfiles/zsh/.private
 source ~/dotfiles/zsh/.vars
 source ~/dotfiles/zsh/.env_vars
 source $ZSH/oh-my-zsh.sh
+source ~/.nvm/nvm.sh
 source ~/dotfiles/zsh/.alias
 source ~/dotfiles/zsh/.functions
 # check if homebrew is installed before sourcing.
