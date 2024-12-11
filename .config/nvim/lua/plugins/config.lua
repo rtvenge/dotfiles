@@ -12,35 +12,6 @@ return {
       colorscheme = "catppuccin",
     },
   },
-
-  {
-    "dense-analysis/ale",
-    config = function()
-      -- TODO: Don't want phpcs on every site but this is required for init.vim to work on the project. 🤷
-      vim.g.ale_fix_on_save = 1
-      vim.g.ale_php_phpcbf_executable = "~/.composer/vendor/bin/phpcbf"
-      vim.g.ale_php_phpcbf_standard = "~/.composer/vendor/wp-coding-standards/wpcs/WordPress"
-      vim.g.ale_php_phpcs_standard = "~/.composer/vendor/wp-coding-standards/wpcs/WordPress"
-      vim.g.ale_php_phpcs_executable = "~/.composer/vendor/bin/phpcs"
-      vim.g.ale_php_phpcs_use_global = 0
-      vim.g.ale_fixers = {
-        php = { "phpcbf" },
-        javascript = { "prettier", "eslint" }, -- Use both prettier and eslint as fixers
-        typescript = { "prettier", "eslint" },
-        vue = { "prettier", "eslint" },
-        css = { "stylelint" },
-        markdown = { "marksman" },
-      }
-      vim.g.ale_linters = {
-        php = { "phpcs" },
-        javascript = { "eslint" }, -- Add more languages as needed
-        typescript = { "eslint" },
-        vue = { "eslint" },
-        css = { "stylelint" },
-      }
-    end,
-  },
-
   -- change trouble config
   {
     "folke/trouble.nvim",
