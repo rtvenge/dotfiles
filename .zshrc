@@ -12,3 +12,4 @@ source ~/dotfiles/zsh/.functions
 if [ -d "/opt/homebrew" ]; then
   source ~/dotfiles/zsh/.fzf.zsh
 fi
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
