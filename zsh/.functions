@@ -1,15 +1,15 @@
 #!/bin/bash
 
-function termauth () {
-  terminus auth:login --machine-token=TERMINUS_KEY;
-  lando terminus auth:login --machine-token=TERMINUS_KEY;
+function termauth() {
+  terminus auth:login --machine-token=TERMINUS_KEY
+  lando terminus auth:login --machine-token=TERMINUS_KEY
 }
 
-function webhost () {
+function webhost() {
   git remote add webhost $(terminus connection:info --format=list --fields=git_url $1.dev)
 }
 
-function gitsync () {
+function gitsync() {
   git checkout $1
   git pull webhost $1
   git pull origin $1
@@ -17,7 +17,7 @@ function gitsync () {
   git push origin $1
 }
 
-function gitflowsync () {
+function gitflowsync() {
   git checkout main
   git push origin main
   git checkout develop
@@ -25,21 +25,21 @@ function gitflowsync () {
   git push origin --tags
 }
 
-function gitpushtomain () {
+function gitpushtomain() {
   git checkout dev
-  git pull origin dev
+  git pull origin dev --no-edit
   git checkout main
-  git pull origin main
+  git pull origin main --no-edit
   git merge dev
   git push origin main
 }
 
-function npmbuild () {
+function npmbuild() {
   npm run build
   git commit -am "Adding compiled files."
 }
 
-function clonesite () {
+function clonesite() {
   cd ~/Sites/lando
   git clone git@gitlab.com:hoverboard88/client-sites/$1.git
   cd $1
@@ -49,7 +49,7 @@ function clonesite () {
   lando pull --code=none --database=live --files=live
 }
 
-function gitbranchcleanup () {
+function gitbranchcleanup() {
   git branch | grep -v " master$" | grep -v " main$" | grep -v " develop$" | grep -v " dev$" | xargs git branch -D
   git remote prune origin
 }
@@ -62,10 +62,11 @@ function timezsh() {
 
 function fcd() {
   local dir
-  dir=$(find ${1:-.} -type d -not -path '*/\.*' 2> /dev/null | fzf +m) && cd "$dir"
+  dir=$(find ${1:-.} -type d -not -path '*/\.*' 2>/dev/null | fzf +m) && cd "$dir"
 }
 
 function flushDNS() {
-  sudo killall -HUP mDNSResponder; sudo killall mDNSResponderHelper;
+  sudo killall -HUP mDNSResponder
+  sudo killall mDNSResponderHelper
   sudo dscacheutil -flushcache
 }

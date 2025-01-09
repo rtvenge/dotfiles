@@ -1,9 +1,0 @@
-{
-  "bem": {
-    "prefix": "bem",
-    "body": [
-      ".${TM_FILENAME_BASE}${2:__}"
-    ],
-    "description": "Block for BEM"
-	}
-}
