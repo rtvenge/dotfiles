@@ -8,3 +8,4 @@ private.yml
 .config/github-copilot/hosts.json
 .config/nvim/pack
 .config/tmux/plugins
+*.bak
