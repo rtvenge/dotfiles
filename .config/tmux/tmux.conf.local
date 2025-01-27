@@ -414,8 +414,8 @@ unbind %
 
 bind r command-prompt "rename-window %%"
 
-# TODO: Still doesn't work.
-set -g @sessionx-bind 'O'
+# TODO: Not sure if this is needed but tpm was deleting all plugins.
+set-environment -g TMUX_PLUGIN_MANAGER_PATH "~/.config/tmux/plugins"
 
 # -- tpm -----------------------------------------------------------------------
 
