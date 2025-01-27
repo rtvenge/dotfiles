@@ -462,6 +462,8 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'christoomey/vim-tmux-navigator'
 set -g @plugin 'jaclu/tmux-menus'
+# TODO: Running non buggy version: https://github.com/omerxx/tmux-sessionx/issues/166
+# Once issue is resolved, delete this folder and have it installed via tpm.
 set -g @plugin 'omerxx/tmux-sessionx'
 
 # -- custom variables ----------------------------------------------------------
