@@ -6,7 +6,11 @@
 
 alias edithosts='vim /etc/hosts'
 alias ipaddr="ifconfig |grep inet"
-alias l="eza -lah --git --icons"
+if command -v exa 1>/dev/null 2>&1; then
+  alias l="eza -lah --icons"
+else
+  alias l="eza -lah --git --icons"
+fi
 alias ls="eza"
 alias cat="bat"
 alias top="htop"
