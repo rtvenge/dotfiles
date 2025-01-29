@@ -2,8 +2,8 @@
 # All dot files
 # Use `timezsh` to troubleshoot load times
 source ~/dotfiles/zsh/.private
-source ~/dotfiles/zsh/.vars
 source ~/dotfiles/zsh/.env_vars
+source ~/dotfiles/zsh/.vars
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/zsh/.alias
 source ~/dotfiles/zsh/.functions
