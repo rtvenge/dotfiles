@@ -10,4 +10,9 @@ private.yml
 .config/tmux/plugins
 .config/tmux/resurrect
 .config/tmux/sidebar
+.config/zed/.tmp*
+.config/zed/conversations
+.config/zed/embeddings
+.config/zed/prompts
+.config/zed/themes
 *.bak
