@@ -7,6 +7,13 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
+    "model_parameters": []
+  },
   "icon_theme": "Catppuccin Macchiato",
   "theme": "Catppuccin Macchiato",
   "ui_font_size": 16,
@@ -19,7 +26,10 @@
   "format_on_save": "language_server",
   "languages": {
     "PHP": {
-      "language_servers": ["phpcs", "!phpactor"]
+      "language_servers": [
+        "phpcs",
+        "!phpactor"
+      ]
     }
   },
   "tab_size": 2
