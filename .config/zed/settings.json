@@ -29,7 +29,19 @@
       "language_servers": [
         "phpcs",
         "!phpactor"
-      ]
+      ],
+      "format_on_save": "on",
+      "prettier": {
+        "allowed": false
+      }
+    }
+  },
+  "lsp": {
+    "phpcs": {
+      "settings": {
+        "phpcs_path": "/Users/ryantvenge/.composer/vendor/bin/phpcs",
+        "phpcbf_path": "/Users/ryantvenge/.composer/vendor/bin/phpcbf"
+      }
     }
   },
   "tab_size": 2,
