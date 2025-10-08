@@ -1,0 +1,23 @@
+[
+  {
+    "label": "PHPCBF: Fix current file",
+    "command": "/Users/ryantvenge/.composer/vendor/bin/phpcbf",
+    "args": [
+      "--standard=phpcs.xml",
+      "$ZED_FILE"
+    ],
+    "reveal": "no_focus",
+    "hide": "always",
+    "shell": "system",
+    "show_command": false
+  },
+  {
+    "label": "Clear Drupal Cache",
+    "command": "cd $ZED_WORKTREE_ROOT && drush cr",
+    "args": [],
+    "reveal": "no_focus",
+    "hide": "always",
+    "shell": "system",
+    "show_command": false
+  }
+]
