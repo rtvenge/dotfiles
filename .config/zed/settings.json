@@ -18,12 +18,17 @@
   "theme": "Catppuccin Macchiato",
   "ui_font_size": 16,
   "buffer_font_size": 16,
+  "git": {
+    "blame": {
+      "show_avatar": true
+    }
+  },
   "vim_mode": true,
   "remove_trailing_whitespace_on_save": true,
   "features": {
     "edit_prediction_provider": "copilot"
   },
-  "format_on_save": "language_server",
+  "format_on_save": "off",
   "languages": {
     "PHP": {
       "language_servers": [
@@ -34,9 +39,19 @@
       "prettier": {
         "allowed": false
       }
+    },
+    "Mustache": {
+      "language_servers": [
+        "html"
+      ]
     }
   },
   "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    },
     "phpcs": {
       "settings": {
         "phpcs_path": "/Users/ryantvenge/.composer/vendor/bin/phpcs",
