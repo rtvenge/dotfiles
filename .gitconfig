@@ -75,3 +75,5 @@
 [safe]
 	# Added because composer was complaining about changing branches on dev modules
 	directory = *
+[init]
+	defaultBranch = main
