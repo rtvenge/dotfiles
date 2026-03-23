@@ -21,8 +21,8 @@
       "tools": {}
     },
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
+      "provider": "copilot_chat",
+      "model": "gpt-5.4"
     },
     "model_parameters": []
   },
