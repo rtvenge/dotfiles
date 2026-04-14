@@ -21,8 +21,10 @@
       "tools": {}
     },
     "default_model": {
+      "effort": "high",
+      "enable_thinking": false,
       "provider": "copilot_chat",
-      "model": "gpt-5.4"
+      "model": "gpt-5.3-codex"
     },
     "model_parameters": []
   },
