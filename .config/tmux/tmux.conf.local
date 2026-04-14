@@ -485,7 +485,7 @@ set -g @plugin 'omerxx/tmux-sessionx'
 #
 # # usage: #{weather}
 # weather() {                                         # see https://github.com/chubin/wttr.in#one-line-output
-#   curl -f -s -m 2 'wttr.in?format="%c%t\n"' || printf '\n' # /!\ make sure curl is installed
+#   curl -f -s -m 2 'wttr.in?format="%c%t\n"&u' || printf '\n' # /!\ make sure curl is installed
 #   sleep 900                                         # sleep for 15 minutes, throttle network requests whatever the value of status-interval
 # }
 #
