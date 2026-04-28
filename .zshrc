@@ -11,3 +11,7 @@ source ~/dotfiles/zsh/.functions
 if [ -d "/opt/homebrew" ]; then
   source ~/dotfiles/zsh/.fzf.zsh
 fi
+export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+export PATH=/Users/ryantvenge/.opencode/bin:$PATH
