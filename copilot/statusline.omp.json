@@ -1,0 +1,98 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "os": "#ACB0BE",
+    "closer": "p:os",
+    "red": "#f38ba8",
+    "pink": "#F5C2E7",
+    "lavender": "#B4BEFE",
+    "blue": "#89B4FA",
+    "green": "#a6e3a1",
+    "yellow": "#f9e2af"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:green",
+          "template": "\uf544 "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:pink",
+          "template": "{{ .Path }} ",
+          "options": {
+            "folder_icon": "..\ue5fe..",
+            "home_icon": "~",
+            "style": "agnoster_short"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:closer",
+          "template": "\uf105"
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:lavender",
+          "template": " {{ .HEAD }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }} ",
+          "options": {
+            "fetch_status": true,
+            "fetch_upstream_icon": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:blue",
+          "template": " {{ .Env.COPILOT_STATUS_GAUGE }} {{ .Env.COPILOT_STATUS_CONTEXT }} "
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:green",
+          "template": "{{ if .Env.COPILOT_STATUS_CHANGES }} \uf067 {{ .Env.COPILOT_STATUS_CHANGES }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:lavender",
+          "template": "{{ if .Env.COPILOT_STATUS_QUOTA }} \uf201 {{ .Env.COPILOT_STATUS_QUOTA }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:pink",
+          "template": "{{ if .Env.COPILOT_STATUS_REMAINING }} \uf252 {{ .Env.COPILOT_STATUS_REMAINING }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:red",
+          "template": "{{ if .Env.COPILOT_STATUS_REMAINING_REQUESTS }} req {{ .Env.COPILOT_STATUS_REMAINING_REQUESTS }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:yellow",
+          "template": " \uf017 {{ .Env.COPILOT_STATUS_DURATION }} "
+        }
+      ]
+    }
+  ],
+  "final_space": true,
+  "version": 3
+}
