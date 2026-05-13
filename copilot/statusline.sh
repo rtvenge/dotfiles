@@ -101,6 +101,7 @@ except Exception:
     print("gauge\t..........")
     print("duration\t00:00:00")
     print("changes\t")
+    print("agent\t")
     print("quota\t")
     print("remaining\t")
     print("remaining_requests\t")
@@ -109,6 +110,7 @@ except Exception:
 context = data.get("context_window", {}) if isinstance(data.get("context_window", {}), dict) else {}
 cost = data.get("cost", {}) if isinstance(data.get("cost", {}), dict) else {}
 quota = data.get("quota", {}) if isinstance(data.get("quota", {}), dict) else {}
+model = data.get("model", {}) if isinstance(data.get("model", {}), dict) else {}
 
 cwd = data.get("cwd") or "."
 
@@ -130,6 +132,12 @@ except Exception:
     removed = 0
 
 changes = f"+{added}/-{removed}" if (added or removed) else ""
+agent_value = first_text(
+    data.get("agent"),
+    data.get("agent_name"),
+    model.get("display_name"),
+    model.get("id"),
+)
 
 quota_used_percent = first_number(
     quota.get("used_percentage"),
@@ -156,6 +164,7 @@ remaining_percent = first_number(
     quota.get("remaining_percentage"),
     quota.get("remaining_percent"),
     data.get("quota_remaining_percentage"),
+    context.get("remaining_percentage"),
 )
 
 if remaining_percent is not None:
@@ -192,6 +201,26 @@ remaining_requests_number = first_number(
 if remaining_requests_number is not None:
     remaining_requests_value = str(int(remaining_requests_number))
 else:
+    requests_used = first_number(
+        cost.get("total_premium_requests"),
+        cost.get("premium_requests"),
+        data.get("total_premium_requests"),
+        data.get("premium_requests"),
+    )
+    requests_limit = first_number(
+        quota.get("request_limit"),
+        quota.get("requests_limit"),
+        data.get("request_limit"),
+        data.get("requests_limit"),
+        os.environ.get("COPILOT_STATUS_REQUEST_LIMIT"),
+    )
+    if requests_limit is not None and requests_used is not None:
+        remaining_requests_value = str(max(0, int(requests_limit - requests_used)))
+    elif requests_used is not None:
+        remaining_requests_value = f"{int(requests_used)} used"
+    else:
+        remaining_requests_value = ""
+if not remaining_requests_value:
     remaining_requests_value = first_text(
         quota.get("remaining_requests"),
         quota.get("requests_remaining"),
@@ -204,6 +233,7 @@ print(f"context\t{token_count(current_tokens)}/{token_count(context_limit)}")
 print(f"gauge\t{gauge(context_percent)}")
 print(f"duration\t{duration(cost.get('total_duration_ms'))}")
 print(f"changes\t{changes}")
+print(f"agent\t{agent_value}")
 print(f"quota\t{quota_value}")
 print(f"remaining\t{remaining_value}")
 print(f"remaining_requests\t{remaining_requests_value}")
@@ -215,6 +245,7 @@ context="?/ ?"
 gauge=".........."
 total_duration="00:00:00"
 changes=""
+agent=""
 quota=""
 remaining=""
 remaining_requests=""
@@ -226,6 +257,7 @@ while IFS=$'\t' read -r key value; do
     gauge) gauge="$value" ;;
     duration) total_duration="$value" ;;
     changes) changes="$value" ;;
+    agent) agent="$value" ;;
     quota) quota="$value" ;;
     remaining) remaining="$value" ;;
     remaining_requests) remaining_requests="$value" ;;
@@ -252,6 +284,7 @@ export COPILOT_STATUS_CONTEXT="$context"
 export COPILOT_STATUS_GAUGE="$gauge"
 export COPILOT_STATUS_DURATION="$total_duration"
 export COPILOT_STATUS_CHANGES="$changes"
+export COPILOT_STATUS_AGENT="$agent"
 export COPILOT_STATUS_QUOTA="$quota"
 export COPILOT_STATUS_REMAINING="$remaining"
 export COPILOT_STATUS_REMAINING_REQUESTS="$remaining_requests"

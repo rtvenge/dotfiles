@@ -57,14 +57,14 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "p:blue",
-          "template": " {{ .Env.COPILOT_STATUS_GAUGE }} {{ .Env.COPILOT_STATUS_CONTEXT }} "
+          "foreground": "p:green",
+          "template": "{{ if .Env.COPILOT_STATUS_CHANGES }} \uf067 {{ .Env.COPILOT_STATUS_CHANGES }} {{ end }}"
         },
         {
           "type": "text",
           "style": "plain",
-          "foreground": "p:green",
-          "template": "{{ if .Env.COPILOT_STATUS_CHANGES }} \uf067 {{ .Env.COPILOT_STATUS_CHANGES }} {{ end }}"
+          "foreground": "p:blue",
+          "template": "{{ if .Env.COPILOT_STATUS_AGENT }} \uf544 {{ .Env.COPILOT_STATUS_AGENT }} {{ end }}"
         },
         {
           "type": "text",
@@ -77,12 +77,6 @@
           "style": "plain",
           "foreground": "p:pink",
           "template": "{{ if .Env.COPILOT_STATUS_REMAINING }} \uf252 {{ .Env.COPILOT_STATUS_REMAINING }} {{ end }}"
-        },
-        {
-          "type": "text",
-          "style": "plain",
-          "foreground": "p:red",
-          "template": "{{ if .Env.COPILOT_STATUS_REMAINING_REQUESTS }} req {{ .Env.COPILOT_STATUS_REMAINING_REQUESTS }} {{ end }}"
         },
         {
           "type": "text",
