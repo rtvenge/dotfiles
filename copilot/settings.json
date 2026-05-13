@@ -1,0 +1,41 @@
+{
+  "theme": "auto",
+  "model": "gpt-5.3-codex",
+  "allowedUrls": [
+    "https://schemas.wp.org",
+    "https://docs.github.com",
+    "https://raw.githubusercontent.com"
+  ],
+  "feature_flags": {
+    "enabled": [
+      "STATUS_LINE"
+    ]
+  },
+  "trustedFolders": [
+    "/Users/ryantvenge/Sites/lando/stpaul.gov-lts",
+    "/Users/ryantvenge/Sites/lando/custom/wp-content/themes/hoverboard",
+    "/Users/ryantvenge/Sites/apps/coast-watcher",
+    "/Users/ryantvenge/Sites/repos/demo-issue-tracker",
+    "/Users/ryantvenge/tools/wt-cli",
+    "/Users/ryantvenge/Sites/apps/club54board",
+    "/Users/ryantvenge/Sites/lando/tactileinc",
+    "/Users/ryantvenge"
+  ],
+  "firstLaunchAt": "2026-03-11T00:00:00.000Z",
+  "footer": {
+    "showModelEffort": false,
+    "showDirectory": false,
+    "showBranch": false,
+    "showContextWindow": false,
+    "showQuota": false,
+    "showAgent": false,
+    "showCodeChanges": false,
+    "showUsername": false,
+    "showCustom": true
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "$HOME/dotfiles/copilot/statusline.sh",
+    "padding": 1
+  }
+}
