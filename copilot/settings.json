@@ -4,7 +4,8 @@
   "allowedUrls": [
     "https://schemas.wp.org",
     "https://docs.github.com",
-    "https://raw.githubusercontent.com"
+    "https://raw.githubusercontent.com",
+    "https://ghostty.org"
   ],
   "feature_flags": {
     "enabled": [
@@ -27,7 +28,7 @@
     "showDirectory": false,
     "showBranch": false,
     "showContextWindow": false,
-    "showQuota": false,
+    "showQuota": true,
     "showAgent": false,
     "showCodeChanges": false,
     "showUsername": false,

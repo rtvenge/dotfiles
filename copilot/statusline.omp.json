@@ -63,12 +63,6 @@
         {
           "type": "text",
           "style": "plain",
-          "foreground": "p:blue",
-          "template": "{{ if .Env.COPILOT_STATUS_AGENT }} \uf544 {{ .Env.COPILOT_STATUS_AGENT }} {{ end }}"
-        },
-        {
-          "type": "text",
-          "style": "plain",
           "foreground": "p:lavender",
           "template": "{{ if .Env.COPILOT_STATUS_QUOTA }} \uf201 {{ .Env.COPILOT_STATUS_QUOTA }} {{ end }}"
         },
