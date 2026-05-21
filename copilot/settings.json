@@ -5,7 +5,9 @@
     "https://schemas.wp.org",
     "https://docs.github.com",
     "https://raw.githubusercontent.com",
-    "https://ghostty.org"
+    "https://ghostty.org",
+    "https://queue-times.com",
+    "http://localhost:4568"
   ],
   "feature_flags": {
     "enabled": [
