@@ -51,3 +51,5 @@ matches:
     replace: accessibility
   - trigger: ;;wp
     replace: WordPress
+  - trigger: ;update
+    replace: sudo apt update && sudo apt upgrade -y
