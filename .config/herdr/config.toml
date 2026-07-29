@@ -1,0 +1,51 @@
+# herdr configuration
+# Lives at ~/.config/herdr/config.toml (symlinked from dotfiles/.config/herdr)
+# Migrated from tmux (Oh My Tmux + catppuccin mocha), see .config/tmux/tmux.conf.local
+
+[theme]
+name = "catppuccin"
+
+# Pin the exact Mocha values you used in tmux_conf_theme_colour_* rather than
+# trusting the built-in "catppuccin" flavor default.
+[theme.custom]
+panel_bg = "#1e1e2e" # base
+accent = "#89b4fa"   # blue - matches tmux_conf_theme_pane_active_border / current window
+red = "#f38ba8"
+green = "#a6e3a1"
+blue = "#89b4fa"
+yellow = "#f9e2af"
+
+[ui]
+accent = "#89b4fa"
+mouse_capture = true       # you had `set -g mouse on`
+
+[keys]
+prefix = "ctrl+s"          # matches your tmux prefix (you only added C-a as prefix2)
+
+# focus_pane_left/down/up/right already default to prefix+h/j/k/l - that
+# already matches your `bind -r h/j/k/l select-pane` muscle memory, no
+# change needed.
+
+# Your tmux split habit: `|` = side-by-side, `-` = stacked
+# (bind | split-window -h ; bind - split-window -v).
+# Verify these land the direction you expect - herdr's vertical/horizontal
+# naming may not line up with tmux's -h/-v flags - swap if reversed.
+split_vertical = "prefix+|"
+split_horizontal = "prefix+-"
+
+# Rough equivalents for things you used plugins for:
+#   tmux-sessionx / session picker -> workspace_picker = "prefix+w" (default)
+#   new session (bind C-c)         -> new_workspace = "prefix+shift+n" (default)
+#   tmux-menus                     -> toggle_sidebar = "prefix+b" (default)
+# Left commented since they're already the defaults - uncomment to change.
+# workspace_picker = "prefix+w"
+# new_workspace = "prefix+shift+n"
+goto = "prefix+shift+o"
+
+[session]
+# Closest equivalent to tmux-resurrect/continuum, but it only resumes
+# supported AI-agent conversations, not arbitrary pane layouts/commands.
+resume_agents_on_restore = true
+
+[worktrees]
+directory = "~/.herdr/worktrees"
