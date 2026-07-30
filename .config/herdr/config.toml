@@ -20,7 +20,12 @@ accent = "#89b4fa"
 mouse_capture = true       # you had `set -g mouse on`
 
 [keys]
-prefix = "ctrl+s"          # matches your tmux prefix (you only added C-a as prefix2)
+prefix = "ctrl+s"
+
+# Your tmux used C-h/C-l (not the default p/n letters) for window nav:
+#   bind -r C-h previous-window ; bind -r C-l next-window
+previous_tab = "prefix+ctrl+h"
+next_tab = "prefix+ctrl+l"
 
 # focus_pane_left/down/up/right already default to prefix+h/j/k/l - that
 # already matches your `bind -r h/j/k/l select-pane` muscle memory, no
@@ -41,6 +46,14 @@ split_horizontal = "prefix+-"
 # workspace_picker = "prefix+w"
 # new_workspace = "prefix+shift+n"
 goto = "prefix+shift+o"
+
+# lazygit popup - you already alias `lg` to lazygit
+[[keys.command]]
+key = "prefix+alt+g"
+type = "popup"
+command = "lazygit"
+width = "80%"
+height = "80%"
 
 [session]
 # Closest equivalent to tmux-resurrect/continuum, but it only resumes
