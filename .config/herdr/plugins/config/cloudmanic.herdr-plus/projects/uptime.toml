@@ -1,8 +1,0 @@
-name = "Uptime"
-working_dir = "~/Sites/repos/uptime"
-
-[[tabs]]
-name = "CLI"
-
-[[tabs]]
-name = "SSH"

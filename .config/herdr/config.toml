@@ -32,8 +32,8 @@ next_tab = "prefix+ctrl+l"
 # `bind -r h/j/k/l select-pane` muscle memory. Adding prefix+arrow on top,
 # like tmux's stock prefix+Left/Down/Up/Right pane switching.
 focus_pane_left = ["prefix+h", "prefix+left"]
-focus_pane_down = ["prefix+j", "prefix+down"]
-focus_pane_up = ["prefix+k", "prefix+up"]
+focus_pane_down = ["prefix+j"]
+focus_pane_up = ["prefix+k"]
 focus_pane_right = ["prefix+l", "prefix+right"]
 
 # Your tmux split habit: `|` = side-by-side, `-` = stacked
@@ -50,6 +50,7 @@ split_horizontal = "prefix+-"
 # Left commented since they're already the defaults - uncomment to change.
 # workspace_picker = "prefix+w"
 # new_workspace = "prefix+shift+n"
+goto = "prefix+shift+o"
 
 # lazygit popup - you already alias `lg` to lazygit
 [[keys.command]]
@@ -68,13 +69,13 @@ resume_agents_on_restore = true
 directory = "~/.herdr/worktrees"
 
 [[keys.command]]
-key = "prefix+shift+o"
+key = "prefix+up"
 type = "plugin_action"
 command = "cloudmanic.herdr-plus.projects"
 description = "herdr-plus: projects"
 
 [[keys.command]]
-key = "prefix+ctrl+d"
+key = "prefix+down"
 type = "plugin_action"
 command = "cloudmanic.herdr-plus.quick-actions"
 description = "herdr-plus: quick actions"

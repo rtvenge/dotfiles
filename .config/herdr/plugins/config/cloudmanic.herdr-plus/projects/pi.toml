@@ -1,8 +1,0 @@
-name = "Pi"
-working_dir = "~"
-
-[[tabs]]
-name = "CLI"
-
-[[tabs]]
-name = "Pi"
