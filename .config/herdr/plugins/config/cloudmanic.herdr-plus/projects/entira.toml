@@ -1,0 +1,16 @@
+name = "Entira"
+working_dir = "~/Sites/lando/entirafamilyclinics"
+group = "Lando"
+
+[[tabs]]
+name = "Editor"
+
+[[tabs]]
+name = "CLI"
+
+[[tabs]]
+name = "Server"
+
+[[tabs]]
+name = "Run"
+# Originally opened wp-content/themes/entira_v2

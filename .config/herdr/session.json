@@ -1,0 +1,520 @@
+{
+  "version": 3,
+  "workspaces": [
+    {
+      "id": "w1",
+      "custom_name": null,
+      "identity_cwd": "/Users/ryantvenge/dotfiles",
+      "public_pane_numbers": {
+        "3": 3,
+        "1": 1,
+        "2": 2
+      },
+      "next_public_pane_number": 13,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "AI",
+          "layout": {
+            "Pane": 1
+          },
+          "panes": {
+            "1": {
+              "cwd": "/Users/ryantvenge/dotfiles",
+              "agent_session": {
+                "source": "herdr:claude",
+                "agent": "claude",
+                "kind": "id",
+                "value": "ccd88a13-aa96-4e25-b8f1-ea7afc6b0138"
+              }
+            }
+          },
+          "zoomed": false,
+          "focused": 1,
+          "root_pane": 1
+        },
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Split": {
+              "direction": "Horizontal",
+              "ratio": 0.5,
+              "first": {
+                "Pane": 2
+              },
+              "second": {
+                "Pane": 3
+              }
+            }
+          },
+          "panes": {
+            "3": {
+              "cwd": "/Users/ryantvenge/.config"
+            },
+            "2": {
+              "cwd": "/Users/ryantvenge/dotfiles"
+            }
+          },
+          "zoomed": false,
+          "focused": 3,
+          "root_pane": 2
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w2",
+      "custom_name": "Tactile",
+      "identity_cwd": "/Users/ryantvenge/Sites/lando/tactileinc",
+      "public_pane_numbers": {
+        "5": 3,
+        "6": 2,
+        "4": 1
+      },
+      "next_public_pane_number": 4,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Split": {
+              "direction": "Horizontal",
+              "ratio": 0.5,
+              "first": {
+                "Pane": 4
+              },
+              "second": {
+                "Pane": 5
+              }
+            }
+          },
+          "panes": {
+            "5": {
+              "cwd": "/Users/ryantvenge/Sites/lando/tactilefx"
+            },
+            "4": {
+              "cwd": "/Users/ryantvenge/Sites/lando/tactileinc"
+            }
+          },
+          "zoomed": false,
+          "focused": 4,
+          "root_pane": 4
+        },
+        {
+          "custom_name": "AI",
+          "layout": {
+            "Pane": 6
+          },
+          "panes": {
+            "6": {
+              "cwd": "/Users/ryantvenge/Sites/lando/tactileinc"
+            }
+          },
+          "zoomed": false,
+          "focused": 6,
+          "root_pane": 6
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w3",
+      "custom_name": "WHLTrust",
+      "identity_cwd": "/Users/ryantvenge/Sites/lando/whltrust",
+      "public_pane_numbers": {
+        "8": 2,
+        "7": 1
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Pane": 7
+          },
+          "panes": {
+            "7": {
+              "cwd": "/Users/ryantvenge/Sites/lando/whltrust"
+            }
+          },
+          "zoomed": false,
+          "focused": 7,
+          "root_pane": 7
+        },
+        {
+          "custom_name": "AI",
+          "layout": {
+            "Pane": 8
+          },
+          "panes": {
+            "8": {
+              "cwd": "/Users/ryantvenge/Sites/lando/whltrust"
+            }
+          },
+          "zoomed": false,
+          "focused": 8,
+          "root_pane": 8
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w4",
+      "custom_name": "Spinup",
+      "identity_cwd": "/Users/ryantvenge/Sites/lando/spinup-scripts",
+      "public_pane_numbers": {
+        "12": 4,
+        "10": 2,
+        "9": 1,
+        "11": 3
+      },
+      "next_public_pane_number": 5,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Pane": 9
+          },
+          "panes": {
+            "9": {
+              "cwd": "/Users/ryantvenge/Sites/lando/spinup-scripts"
+            }
+          },
+          "zoomed": false,
+          "focused": 9,
+          "root_pane": 9
+        },
+        {
+          "custom_name": "Servers",
+          "layout": {
+            "Split": {
+              "direction": "Horizontal",
+              "ratio": 0.5,
+              "first": {
+                "Pane": 10
+              },
+              "second": {
+                "Split": {
+                  "direction": "Vertical",
+                  "ratio": 0.5,
+                  "first": {
+                    "Pane": 11
+                  },
+                  "second": {
+                    "Pane": 12
+                  }
+                }
+              }
+            }
+          },
+          "panes": {
+            "10": {
+              "cwd": "/Users/ryantvenge/Sites/lando/spinup-scripts"
+            },
+            "11": {
+              "cwd": "/Users/ryantvenge/Sites/lando/spinup-scripts"
+            },
+            "12": {
+              "cwd": "/Users/ryantvenge/Sites/lando/spinup-scripts"
+            }
+          },
+          "zoomed": false,
+          "focused": 12,
+          "root_pane": 10
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w5",
+      "custom_name": "Uptime",
+      "identity_cwd": "/Users/ryantvenge/Sites/repos/uptime",
+      "public_pane_numbers": {
+        "13": 1,
+        "14": 2
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Pane": 13
+          },
+          "panes": {
+            "13": {
+              "cwd": "/Users/ryantvenge/Sites/repos/uptime"
+            }
+          },
+          "zoomed": false,
+          "focused": 13,
+          "root_pane": 13
+        },
+        {
+          "custom_name": "SSH",
+          "layout": {
+            "Pane": 14
+          },
+          "panes": {
+            "14": {
+              "cwd": "/Users/ryantvenge/Sites/repos/uptime"
+            }
+          },
+          "zoomed": false,
+          "focused": 14,
+          "root_pane": 14
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w6",
+      "custom_name": "Pi",
+      "identity_cwd": "/Users/ryantvenge",
+      "public_pane_numbers": {
+        "16": 2,
+        "15": 1
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Pane": 15
+          },
+          "panes": {
+            "15": {
+              "cwd": "/Users/ryantvenge"
+            }
+          },
+          "zoomed": false,
+          "focused": 15,
+          "root_pane": 15
+        },
+        {
+          "custom_name": "Pi",
+          "layout": {
+            "Pane": 16
+          },
+          "panes": {
+            "16": {
+              "cwd": "/Users/ryantvenge"
+            }
+          },
+          "zoomed": false,
+          "focused": 16,
+          "root_pane": 16
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w7",
+      "custom_name": "WHLTrust",
+      "identity_cwd": "/Users/ryantvenge/Sites/lando/whltrust",
+      "public_pane_numbers": {
+        "17": 1,
+        "18": 2
+      },
+      "next_public_pane_number": 3,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Pane": 17
+          },
+          "panes": {
+            "17": {
+              "cwd": "/Users/ryantvenge/Sites/lando/whltrust"
+            }
+          },
+          "zoomed": false,
+          "focused": 17,
+          "root_pane": 17
+        },
+        {
+          "custom_name": "AI",
+          "layout": {
+            "Pane": 18
+          },
+          "panes": {
+            "18": {
+              "cwd": "/Users/ryantvenge/Sites/lando/whltrust"
+            }
+          },
+          "zoomed": false,
+          "focused": 18,
+          "root_pane": 18
+        }
+      ],
+      "active_tab": 1
+    },
+    {
+      "id": "w8",
+      "custom_name": "Club54Board",
+      "identity_cwd": "/Users/ryantvenge/Sites/apps/club54board",
+      "public_pane_numbers": {
+        "23": 3,
+        "24": 4,
+        "22": 2,
+        "21": 1
+      },
+      "next_public_pane_number": 6,
+      "public_tab_numbers": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "next_public_tab_number": 5,
+      "tabs": [
+        {
+          "custom_name": "Git",
+          "layout": {
+            "Pane": 21
+          },
+          "panes": {
+            "21": {
+              "cwd": "/Users/ryantvenge/Sites/apps/club54board"
+            }
+          },
+          "zoomed": false,
+          "focused": 21,
+          "root_pane": 21
+        },
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Pane": 22
+          },
+          "panes": {
+            "22": {
+              "cwd": "/Users/ryantvenge/Sites/apps/club54board"
+            }
+          },
+          "zoomed": false,
+          "focused": 22,
+          "root_pane": 22
+        },
+        {
+          "custom_name": "Run",
+          "layout": {
+            "Pane": 23
+          },
+          "panes": {
+            "23": {
+              "cwd": "/Users/ryantvenge/Sites/apps/club54board"
+            }
+          },
+          "zoomed": false,
+          "focused": 23,
+          "root_pane": 23
+        },
+        {
+          "custom_name": "Pi",
+          "layout": {
+            "Pane": 24
+          },
+          "panes": {
+            "24": {
+              "cwd": "/Users/ryantvenge/Sites/apps/club54board"
+            }
+          },
+          "zoomed": false,
+          "focused": 24,
+          "root_pane": 24
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w9",
+      "custom_name": "Dotfiles",
+      "identity_cwd": "/Users/ryantvenge/dotfiles",
+      "public_pane_numbers": {
+        "26": 1,
+        "27": 2
+      },
+      "next_public_pane_number": 5,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "AI",
+          "layout": {
+            "Pane": 26
+          },
+          "panes": {
+            "26": {
+              "cwd": "/Users/ryantvenge/dotfiles",
+              "agent_session": {
+                "source": "herdr:claude",
+                "agent": "claude",
+                "kind": "id",
+                "value": "3e96edf1-1c9c-48a5-a289-9111fb3c54e2"
+              }
+            }
+          },
+          "zoomed": false,
+          "focused": 26,
+          "root_pane": 26
+        },
+        {
+          "custom_name": "CLI",
+          "layout": {
+            "Pane": 27
+          },
+          "panes": {
+            "27": {
+              "cwd": "/Users/ryantvenge/dotfiles"
+            }
+          },
+          "zoomed": false,
+          "focused": 27,
+          "root_pane": 27
+        }
+      ],
+      "active_tab": 1
+    }
+  ],
+  "active": 8,
+  "selected": 8,
+  "sidebar_width": 26,
+  "sidebar_section_split": 0.5,
+  "collapsed_space_keys": []
+}

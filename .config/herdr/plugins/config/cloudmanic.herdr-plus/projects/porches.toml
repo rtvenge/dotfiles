@@ -1,0 +1,13 @@
+name = "Porches"
+working_dir = "~/Sites/lando/porches-pastures"
+group = "Lando"
+
+[[tabs]]
+name = "Editor"
+
+[[tabs]]
+name = "CLI"
+
+[[tabs]]
+name = "Run"
+# Split across wp-content/themes/porches-pastures-v2 and wp-content/plugins/hoverboard-blocks

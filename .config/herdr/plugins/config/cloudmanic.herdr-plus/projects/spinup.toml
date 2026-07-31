@@ -1,0 +1,23 @@
+name = "Spinup"
+description = "Lando site"
+working_dir = "~/Sites/lando/spinup-scripts"
+group = "Lando"
+
+[[tabs]]
+name = "CLI"
+
+[[tabs]]
+name = "Servers"
+# Best-effort flat approximation of your live 3-pane layout
+# (left pane, top-right, bottom-right) - adjust splits to taste.
+
+[[tabs.panes]]
+label = "Server"
+
+[[tabs.panes]]
+label = "Server 2"
+split = "right"
+
+[[tabs.panes]]
+label = "Server 3"
+split = "down"

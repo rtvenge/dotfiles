@@ -1,3 +1,4 @@
+onboarding = false
 # herdr configuration
 # Lives at ~/.config/herdr/config.toml (symlinked from dotfiles/.config/herdr)
 # Migrated from tmux (Oh My Tmux + catppuccin mocha), see .config/tmux/tmux.conf.local
@@ -27,9 +28,13 @@ prefix = "ctrl+s"
 previous_tab = "prefix+ctrl+h"
 next_tab = "prefix+ctrl+l"
 
-# focus_pane_left/down/up/right already default to prefix+h/j/k/l - that
-# already matches your `bind -r h/j/k/l select-pane` muscle memory, no
-# change needed.
+# focus_pane_left/down/up/right default to prefix+h/j/k/l, matching your
+# `bind -r h/j/k/l select-pane` muscle memory. Adding prefix+arrow on top,
+# like tmux's stock prefix+Left/Down/Up/Right pane switching.
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_down = ["prefix+j", "prefix+down"]
+focus_pane_up = ["prefix+k", "prefix+up"]
+focus_pane_right = ["prefix+l", "prefix+right"]
 
 # Your tmux split habit: `|` = side-by-side, `-` = stacked
 # (bind | split-window -h ; bind - split-window -v).
@@ -45,7 +50,6 @@ split_horizontal = "prefix+-"
 # Left commented since they're already the defaults - uncomment to change.
 # workspace_picker = "prefix+w"
 # new_workspace = "prefix+shift+n"
-goto = "prefix+shift+o"
 
 # lazygit popup - you already alias `lg` to lazygit
 [[keys.command]]
@@ -62,3 +66,15 @@ resume_agents_on_restore = true
 
 [worktrees]
 directory = "~/.herdr/worktrees"
+
+[[keys.command]]
+key = "prefix+shift+o"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.projects"
+description = "herdr-plus: projects"
+
+[[keys.command]]
+key = "prefix+ctrl+d"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.quick-actions"
+description = "herdr-plus: quick actions"

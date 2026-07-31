@@ -1,0 +1,15 @@
+name = "hb-server"
+working_dir = "~/Sites/repos/hb-server"
+group = "Repos"
+
+[[tabs]]
+name = "Editor"
+
+[[tabs]]
+name = "CLI"
+
+[[tabs]]
+name = "Git"
+
+[[tabs]]
+name = "Server"

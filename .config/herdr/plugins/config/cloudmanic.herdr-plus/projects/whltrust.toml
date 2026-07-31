@@ -1,0 +1,11 @@
+name = "WHLTrust"
+description = "Lando site"
+working_dir = "~/Sites/lando/whltrust"
+group = "Lando"
+
+[[tabs]]
+name = "CLI"
+
+[[tabs]]
+name = "AI"
+command = "claude"

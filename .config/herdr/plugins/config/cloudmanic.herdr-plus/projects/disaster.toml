@@ -1,0 +1,10 @@
+name = "Disaster Central"
+working_dir = "~/Sites/lando/disastercentral"
+group = "Lando"
+
+[[tabs]]
+name = "Editor"
+command = "nvim"
+
+[[tabs]]
+name = "CLI"

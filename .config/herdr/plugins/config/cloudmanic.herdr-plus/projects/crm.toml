@@ -1,0 +1,6 @@
+name = "CRM"
+working_dir = "~/Sites/lando/crm"
+group = "Lando"
+
+[[tabs]]
+name = "CLI"
