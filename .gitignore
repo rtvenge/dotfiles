@@ -16,3 +16,9 @@ private.yml
 .config/zed/prompts
 .config/zed/themes
 *.bak
+.config/herdr/*.log
+.config/herdr/*.sock
+.config/herdr/.plugins.lock
+.config/herdr/plugins.json
+.config/herdr/session.json
+.config/herdr/plugins/
