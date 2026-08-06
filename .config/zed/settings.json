@@ -42,7 +42,7 @@
       "effort": "high",
       "enable_thinking": true,
       "provider": "anthropic",
-      "model": "claude-sonnet-5"
+      "model": "claude-opus-5"
     },
     "model_parameters": []
   },
