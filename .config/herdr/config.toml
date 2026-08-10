@@ -54,7 +54,7 @@ goto = "prefix+shift+o"
 
 # lazygit popup - you already alias `lg` to lazygit
 [[keys.command]]
-key = "prefix+alt+g"
+key = "prefix+g"
 type = "popup"
 command = "lazygit"
 width = "80%"
