@@ -1,0 +1,14 @@
+name = "Site"
+working_dir = "~/Sites/lando"
+group = "Starters"
+
+[[tabs]]
+name = "CLI"
+
+[[tabs]]
+name = "AI"
+command = "claude"
+
+[[tabs]]
+name = "Server"
+command = "spinupwp sites:ssh"

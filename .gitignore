@@ -21,4 +21,7 @@ private.yml
 .config/herdr/.plugins.lock
 .config/herdr/plugins.json
 .config/herdr/session.json
-.config/herdr/plugins/
+# plugins/github is a 6.6MB clone of each plugin's source, re-fetched on install.
+# plugins/config is our own project/quick-action TOML — keep that.
+.config/herdr/plugins/*
+!.config/herdr/plugins/config/
