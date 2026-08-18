@@ -24,8 +24,8 @@
           "name": "qwen3.8-27b-mtplx-optimized-speed",
           "reasoning": true,
           "input": ["text"],
-          "contextWindow": 4096,
-          "maxTokens": 8192,
+          "contextWindow": 183040,
+          "maxTokens": 262144,
           "gpuMemory": "N/A"
         }
       ]
