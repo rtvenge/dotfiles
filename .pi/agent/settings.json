@@ -1,0 +1,6 @@
+{
+  "lastChangelogVersion": "0.84.2",
+  "theme": "dark",
+  "defaultProvider": "lmstudio",
+  "defaultModel": "lfm2.5-8b-a1b-mlx"
+}
