@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "palette": {
-    "os": "#ACB0BE",
+    "os": "#9399b2",
     "closer": "p:os",
     "red": "#f38ba8",
     "peach": "#fab387",
