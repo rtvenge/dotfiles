@@ -7,7 +7,26 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "show_edit_predictions": true,
+  "disable_ai": false,
+  "cli_default_open_behavior": "existing_window",
+  "project_panel": {
+    "dock": "left",
+    "starts_open": false
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry"
+    },
     "github-copilot": {
       "type": "registry"
     }
@@ -16,13 +35,16 @@
     "include_ignored": "smart"
   },
   "agent": {
+    "dock": "right",
     "tool_permissions": {
       "default": "confirm",
       "tools": {}
     },
     "default_model": {
+      "effort": "high",
+      "enable_thinking": true,
       "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
+      "model": "claude-opus-5"
     },
     "model_parameters": []
   },

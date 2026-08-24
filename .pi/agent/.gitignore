@@ -1,0 +1,9 @@
+# Ignore generated files and environment variables
+__pycache__/
+*.pyc
+.env
+.git/
+sessions/
+auth.json
+models-store.json
+trust.json

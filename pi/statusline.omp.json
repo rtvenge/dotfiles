@@ -1,0 +1,94 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "palette": {
+    "os": "#9399b2",
+    "closer": "p:os",
+    "red": "#f38ba8",
+    "peach": "#fab387",
+    "pink": "#F5C2E7",
+    "lavender": "#B4BEFE",
+    "blue": "#89B4FA",
+    "green": "#a6e3a1",
+    "yellow": "#f9e2af",
+    "mauve": "#cba6f7"
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:mauve",
+          "template": " "
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "p:pink",
+          "template": "{{ .Path }} ",
+          "options": {
+            "folder_icon": "....",
+            "home_icon": "~",
+            "style": "agnoster_short"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:closer",
+          "template": ""
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "p:lavender",
+          "template": " {{ .HEAD }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} ",
+          "options": {
+            "fetch_status": true,
+            "fetch_upstream_icon": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:mauve",
+          "template": "{{ if .Env.PI_STATUS_MODEL }}  {{ .Env.PI_STATUS_MODEL }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:blue",
+          "template": "{{ if .Env.PI_STATUS_CONTEXT }}  {{ .Env.PI_STATUS_CONTEXT }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:green",
+          "template": "{{ if .Env.PI_STATUS_CHANGES }}  {{ .Env.PI_STATUS_CHANGES }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:peach",
+          "template": "{{ if .Env.PI_STATUS_COST }}  {{ .Env.PI_STATUS_COST }} {{ end }}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "p:yellow",
+          "template": "  {{ .Env.PI_STATUS_DURATION }} "
+        }
+      ]
+    }
+  ],
+  "final_space": true,
+  "version": 3
+}

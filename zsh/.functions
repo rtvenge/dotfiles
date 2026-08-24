@@ -32,6 +32,7 @@ function gitpushtomain() {
   git pull origin main --no-edit
   git merge dev
   git push origin main
+  git checkout dev
 }
 
 function npmbuild() {

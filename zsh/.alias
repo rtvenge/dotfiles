@@ -4,7 +4,7 @@
 # My Alias' #
 #############
 
-alias edithosts='vim /etc/hosts'
+alias edithosts='sudo vim /etc/hosts'
 alias ipaddr="ifconfig |grep inet"
 # if running "eza --git" throws an error, change alias
 if command -v exa 1>/dev/null 2>&1; then
@@ -13,7 +13,11 @@ else
   alias l="eza -lah --git --icons"
 fi
 alias ls="eza"
-alias cat="batcat"
+if command -v bat 1>/dev/null 2>&1; then
+  alias cat="bat"
+elif command -v batcat 1>/dev/null 2>&1; then
+  alias cat="batcat"
+fi
 alias top="htop"
 alias youtube-dl="yt-dlp"
 alias lg="lazygit"
