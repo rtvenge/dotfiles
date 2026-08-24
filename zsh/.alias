@@ -13,7 +13,7 @@ else
   alias l="eza -lah --git --icons"
 fi
 alias ls="eza"
-alias cat="bat"
+alias cat="batcat"
 alias top="htop"
 alias youtube-dl="yt-dlp"
 alias lg="lazygit"
