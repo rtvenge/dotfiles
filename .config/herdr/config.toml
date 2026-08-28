@@ -50,11 +50,11 @@ split_horizontal = "prefix+-"
 # Left commented since they're already the defaults - uncomment to change.
 # workspace_picker = "prefix+w"
 # new_workspace = "prefix+shift+n"
-goto = "prefix+shift+o"
+# goto = "prefix+shift+o"
 
 # lazygit popup - you already alias `lg` to lazygit
 [[keys.command]]
-key = "prefix+g"
+key = "prefix+alt+g"
 type = "popup"
 command = "lazygit"
 width = "80%"
