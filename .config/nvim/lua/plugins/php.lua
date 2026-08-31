@@ -7,6 +7,68 @@
 -- php_codesniffer, so both tools are resolved to a project `vendor/bin` first and
 -- ~/.composer/vendor/bin second -- never to a mason-installed copy, which would
 -- shadow them on PATH without knowing any of the standards.
+-- Intelephense's own default stub list (extracted from the shipped
+-- intelephense.js). `settings.intelephense.stubs` REPLACES the defaults rather
+-- than extending them, so the whole list has to be repeated to add to it.
+local default_stubs = {
+  "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl",
+  "date", "dba", "dom", "enchant", "exif", "fileinfo", "filter", "fpm", "ftp",
+  "gd", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring",
+  "mcrypt", "mssql", "mysqli", "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO",
+  "pgsql", "Phar", "posix", "pspell", "random", "readline", "Reflection", "regex",
+  "session", "shmop", "SimpleXML", "snmp", "soap", "sockets", "sodium", "SPL",
+  "sqlite3", "standard", "superglobals", "sybase", "sysvmsg", "sysvsem",
+  "sysvshm", "tidy", "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter",
+  "Zend OPcache", "zip", "zlib",
+}
+
+-- `wordpress` ships inside intelephense; the rest of the WP ecosystem does not,
+-- and comes from composer stub packages picked up via environment.includePaths:
+--   composer global require php-stubs/wordpress-globals php-stubs/wordpress-stubs \
+--     php-stubs/woocommerce-stubs php-stubs/acf-pro-stubs php-stubs/wp-cli-stubs
+-- Those names are only added when that directory actually exists, so an
+-- uninstalled stub package never turns into a phantom symbol source.
+local stub_packages = {
+  ["woocommerce-stubs"] = "woocommerce",
+  ["acf-pro-stubs"] = "acf-pro",
+  ["wordpress-globals"] = "wordpress-globals",
+  ["wp-cli-stubs"] = "wp-cli",
+  ["genesis-stubs"] = "genesis",
+}
+
+local function intelephense_stubs()
+  local stubs = vim.list_extend(vim.deepcopy(default_stubs), { "wordpress" })
+  local root = vim.fn.expand("~/.composer/vendor/php-stubs")
+  for dir, stub in pairs(stub_packages) do
+    if vim.uv.fs_stat(root .. "/" .. dir) then
+      table.insert(stubs, stub)
+    end
+  end
+  return stubs
+end
+
+local function intelephense_include_paths()
+  local root = vim.fn.expand("~/.composer/vendor/php-stubs")
+  return vim.uv.fs_stat(root) and { root } or {}
+end
+
+-- Premium unlocks rename, find-implementations and code actions. The key stays
+-- out of the repo: $INTELEPHENSE_LICENCE_KEY, else ~/intelephense/licence.txt
+-- (where the official editor extensions store it). No key = free tier, silently.
+local function intelephense_init_options()
+  local key = vim.env.INTELEPHENSE_LICENCE_KEY
+  if not key or key == "" then
+    local licence = vim.fn.expand("~/intelephense/licence.txt")
+    if vim.uv.fs_stat(licence) then
+      key = vim.trim(table.concat(vim.fn.readfile(licence), ""))
+    end
+  end
+  if not key or key == "" then
+    return nil
+  end
+  return { licenceKey = key }
+end
+
 local function composer_bin(name)
   return function()
     local root = vim.fs.root(0, { "composer.json", ".git" })
@@ -29,11 +91,32 @@ return {
     end,
   },
 
-  -- Zed runs emmet-language-server on PHP; do the same, plus the template filetypes.
+  -- intelephense itself is selected in config/options.lua
+  -- (vim.g.lazyvim_php_lsp = "intelephense"); LazyVim's php extra only flips it
+  -- on, with no settings. Everything WordPress/Drupal-specific lives here.
+  --
+  -- Zed also runs emmet-language-server on PHP; do the same, plus the template
+  -- filetypes.
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
+        intelephense = {
+          init_options = intelephense_init_options(),
+          settings = {
+            intelephense = {
+              stubs = intelephense_stubs(),
+              environment = {
+                includePaths = intelephense_include_paths(),
+              },
+              files = {
+                -- default is 1 MB, which skips some generated/vendored files in
+                -- WP and Drupal cores and leaves their symbols unresolvable.
+                maxSize = 5000000,
+              },
+            },
+          },
+        },
         emmet_language_server = {
           filetypes = {
             "blade",

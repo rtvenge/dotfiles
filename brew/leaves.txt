@@ -9,6 +9,7 @@ ggshield
 gh
 git-flow-avh
 git-lfs
+go
 htop
 jandedobbeleer/oh-my-posh/oh-my-posh
 jq
