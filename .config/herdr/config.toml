@@ -43,6 +43,10 @@ focus_pane_right = ["prefix+l", "prefix+right"]
 split_vertical = "prefix+|"
 split_horizontal = "prefix+-"
 
+# Tab reordering: herdr has no move_tab_* action, so these go through
+# bin/herdr-move-tab, which calls the socket API's tab.move (see [[keys.command]]
+# entries below - shell commands can't live in the [keys] table itself).
+
 # Rough equivalents for things you used plugins for:
 #   tmux-sessionx / session picker -> workspace_picker = "prefix+w" (default)
 #   new session (bind C-c)         -> new_workspace = "prefix+shift+n" (default)
@@ -51,6 +55,19 @@ split_horizontal = "prefix+-"
 # workspace_picker = "prefix+w"
 # new_workspace = "prefix+shift+n"
 # goto = "prefix+shift+o"
+
+# Tab reordering, see the [keys] note above
+[[keys.command]]
+key = "prefix+["
+type = "shell"
+command = "/Users/ryantvenge/dotfiles/bin/herdr-move-tab prev"
+description = "Move tab left"
+
+[[keys.command]]
+key = "prefix+]"
+type = "shell"
+command = "/Users/ryantvenge/dotfiles/bin/herdr-move-tab next"
+description = "Move tab right"
 
 # lazygit popup - you already alias `lg` to lazygit
 [[keys.command]]

@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+#
+# herdr-move-tab — reorder the focused tab within its workspace.
+#
+# herdr 0.7.5 has no `move_tab_*` keybinding action (see `[keys]` in
+# `herdr config check` output for the list it accepts), but the socket API
+# exposes `tab.move`, so this drives that directly and gets bound through
+# `[[keys.command]]` in .config/herdr/config.toml instead.
+#
+# Usage:
+#   herdr-move-tab prev    move the focused tab one slot left  (wraps)
+#   herdr-move-tab next    move the focused tab one slot right (wraps)
+
+import json
+import os
+import socket
+import sys
+
+SOCKET_PATH = os.environ.get(
+    "HERDR_SOCKET_PATH", os.path.expanduser("~/.config/herdr/herdr.sock")
+)
+
+
+def die(msg):
+    sys.stderr.write("herdr-move-tab: %s\n" % msg)
+    sys.exit(1)
+
+
+def request(method, params):
+    """One request per connection - the server hangs up after replying."""
+    try:
+        sock = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        sock.connect(SOCKET_PATH)
+    except OSError as err:
+        die("cannot reach herdr at %s: %s" % (SOCKET_PATH, err))
+
+    with sock:
+        sock.sendall(
+            (json.dumps({"id": "herdr-move-tab", "method": method, "params": params}) + "\n").encode()
+        )
+        buf = b""
+        while b"\n" not in buf:
+            chunk = sock.recv(65536)
+            if not chunk:
+                die("socket closed before %s replied" % method)
+            buf += chunk
+
+    reply = json.loads(buf.split(b"\n", 1)[0].decode())
+    if "error" in reply:
+        die("%s failed: %s" % (method, reply["error"]))
+    return reply["result"]
+
+
+def main():
+    if len(sys.argv) != 2 or sys.argv[1] not in ("prev", "next"):
+        die("usage: herdr-move-tab <prev|next>")
+    step = -1 if sys.argv[1] == "prev" else 1
+
+    # tab.list with no workspace returns every tab, and exactly one of them is
+    # flagged focused - that identifies both the tab and the workspace.
+    tabs = request("tab.list", {})["tabs"]
+    focused = next((t for t in tabs if t.get("focused")), None)
+    if focused is None:
+        die("no focused tab")
+
+    siblings = [t for t in tabs if t["workspace_id"] == focused["workspace_id"]]
+    if len(siblings) < 2:
+        return  # nowhere to move it
+
+    # tab.move's insert_index is "put this tab before whatever currently sits at
+    # that index", counted against the list *including* the tab being moved. So
+    # one slot left is index - 1, and one slot right is index + 2 (skipping over
+    # both itself and its right-hand neighbour). Off the end wraps around.
+    index = siblings.index(focused)
+    last = len(siblings) - 1
+    if step < 0:
+        insert_index = len(siblings) if index == 0 else index - 1
+    else:
+        insert_index = 0 if index == last else index + 2
+
+    request("tab.move", {"tab_id": focused["tab_id"], "insert_index": insert_index})
+
+
+if __name__ == "__main__":
+    main()
