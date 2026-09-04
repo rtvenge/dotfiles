@@ -57,6 +57,28 @@ return {
         -- OpenAI prompt+suffix form, and llama.cpp assembles the FIM prompt from
         -- the tokens baked into the GGUF, so Qwen's specials get used regardless.
       },
+      -- Stock defaults predict constantly: they fire 50ms after any keystroke,
+      -- fire again after 50ms of sitting still in normal mode, and can push up
+      -- to 12 virtual lines into the buffer. That reads as suggestions arriving
+      -- before you've typed anything, and as text shifting under the cursor.
+      behavior = {
+        -- Only predict while actually typing. This is the one that stops
+        -- suggestions appearing while you're just sitting in normal mode.
+        enabled_modes = { "insert" },
+        idle_completion_delay = -1, -- disables the normal-mode idle trigger
+        -- 50ms fires mid-word. Wait for a real pause instead; the model answers
+        -- in ~1s anyway, so a longer debounce costs nothing perceptible.
+        text_change_debounce = 300,
+        -- Cap how far a multi-line suggestion can push the buffer down. This is
+        -- what makes things jump around; 12 is the default.
+        max_visible_lines = 3,
+        -- Jump indicators earned their place with Zeta, which predicted edits
+        -- in distant regions. FIM only ever completes at the cursor, so these
+        -- are now just movement you didn't ask for. One line to restore.
+        cursor_prediction = { enabled = false },
+        -- Don't autocomplete prose.
+        disabled_in = { "comment", "string" },
+      },
       keymaps = {
         -- Manual trigger, kept from debugging the Zeta setup. It skips every
         -- suppression gate (server/engine/request.go: `if manual { return "" }`),
