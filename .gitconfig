@@ -2,19 +2,28 @@
 	name = Ryan Tvenge
 	email = ryan@hoverboardstudios.com
 [core]
-	editor = vim
+	editor = nvim
 	fileMode = false
 	excludesfile = ~/.gitignore_global
-	pager = diff-so-fancy | less --tabs=4 -RFX
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	pager = delta
+# `git diff` itself is already formatted by delta, via core.pager above.
+# These only apply to `git difftool` / `git mergetool`, which open a real
+# side-by-side view -- delta is a pager, and read-only; it cannot resolve a
+# merge conflict. nvimdiff is git built-in and matches core.editor.
+# (Was Kaleidoscope until that was uninstalled, leaving both commands broken.)
 [diff]
-	tool = Kaleidoscope
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+	tool = nvimdiff
+	# Distinguishes moved lines from real add/deletes; delta renders it.
+	colorMoved = default
 [merge]
-	tool = Kaleidoscope
+	tool = nvimdiff
+	# Shows the common ancestor in conflict markers, not just the two sides.
+	# zdiff3 trims the shared lines out of the hunks; needs git >= 2.35 (2.53 here).
+	conflictstyle = zdiff3
+[difftool]
+	prompt = false
+[mergetool]
+	keepBackup = false
 [url "https://"]
 	insteadOf = git://
 [push]
@@ -39,22 +48,19 @@
 [help]
 	autocorrect = 1
 [interactive]
-	diffFilter = diff-so-fancy --patch
+	diffFilter = delta --color-only
 [color]
 	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	func = 146 bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+# The [color "diff-highlight"] and [color "diff"] blocks that used to live here
+# were diff-so-fancy's recommended palette. delta does its own colouring and
+# ignores diff-highlight entirely, so they were dead config -- see git history
+# if the raw-git colours are ever wanted back.
+[delta]
+	# n/N jump between files and hunks; requires the pager to be delta.
+	navigate = true
+	line-numbers = true
+	# Follows the terminal, so it stays right in Catppuccin Mocha.
+	syntax-theme = base16
 
 # Put this in your ~/.config/git/config file so your signingkey isn't in the repo.
 # [user]
