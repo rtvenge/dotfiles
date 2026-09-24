@@ -14,12 +14,16 @@
 [diff]
 	tool = nvimdiff
 	# Distinguishes moved lines from real add/deletes; delta renders it.
-	colorMoved = default
+  colorMoved = default
+[rerere]
+  enabled = true
 [merge]
 	tool = nvimdiff
 	# Shows the common ancestor in conflict markers, not just the two sides.
 	# zdiff3 trims the shared lines out of the hunks; needs git >= 2.35 (2.53 here).
-	conflictstyle = zdiff3
+  conflictstyle = zdiff3
+[delta]
+  features = Catppuccin Mocha
 [difftool]
 	prompt = false
 [mergetool]
