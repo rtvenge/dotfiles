@@ -9,7 +9,27 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      servers = { biome = {} },
+      servers = {
+        biome = {
+          -- Run the project's own biome when it ships one, the way Zed's
+          -- "binary": { "path": "./node_modules/.bin/biome" } does. Mason's copy
+          -- is only the fallback: it drifts from whatever a repo pins, and then
+          -- the editor disagrees with the repo's npm test and CI.
+          cmd = function(dispatchers, config)
+            local exe = "biome"
+
+            if config.root_dir then
+              local project_bin = vim.fs.joinpath(config.root_dir, "node_modules", ".bin", "biome")
+
+              if vim.uv.fs_stat(project_bin) then
+                exe = project_bin
+              end
+            end
+
+            return vim.lsp.rpc.start({ exe, "lsp-proxy" }, dispatchers)
+          end,
+        },
+      },
     },
   },
 
@@ -17,8 +37,8 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters = {
-        -- Only format when the project actually has a biome config, matching
-        -- require_config_file. Without this conform would run biome anywhere.
+        -- conform's biome formatter already resolves node_modules/.bin/biome, so
+        -- this only keeps it from running biome in projects with no biome config.
         biome = { require_cwd = true },
       },
       formatters_by_ft = {
