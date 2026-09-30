@@ -88,6 +88,14 @@ command = "spinuptui"
 width = "80%"
 height = "80%"
 
+# LaxyDocker popup.
+[[keys.command]]
+key = "prefix+alt+d"
+type = "popup"
+command = "LazyDocker"
+width = "80%"
+height = "80%"
+
 [session]
 # Closest equivalent to tmux-resurrect/continuum, but it only resumes
 # supported AI-agent conversations, not arbitrary pane layouts/commands.
