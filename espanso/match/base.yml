@@ -52,4 +52,4 @@ matches:
   - trigger: ;;wp
     replace: WordPress
   - trigger: ;update
-    replace: sudo apt update && sudo apt upgrade -y
+    replace: sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
