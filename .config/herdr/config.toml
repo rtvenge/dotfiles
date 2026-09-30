@@ -77,6 +77,17 @@ command = "lazygit"
 width = "80%"
 height = "80%"
 
+# SpinupWP TUI popup (mwender/tap/spinuptui). Bare command, like lazygit above:
+# it lives in /opt/homebrew/bin, which is on PATH everywhere. This was an
+# absolute ~/.bun/bin path while spinuptui was a bun global -- that install is
+# gone, so the old path pointed at nothing.
+[[keys.command]]
+key = "prefix+alt+s"
+type = "popup"
+command = "spinuptui"
+width = "80%"
+height = "80%"
+
 [session]
 # Closest equivalent to tmux-resurrect/continuum, but it only resumes
 # supported AI-agent conversations, not arbitrary pane layouts/commands.
