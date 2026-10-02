@@ -64,9 +64,10 @@ split_horizontal = "prefix+-"
 
 # Tab reordering. Native since herdr 0.9.x; before that there was no move_tab_*
 # action at all and these went through bin/herdr-move-tab, a wrapper around the
-# socket API's tab.move.
-move_tab_previous = "prefix+["
-move_tab_next = "prefix+]"
+# socket API's tab.move. Not prefix+[ / prefix+]: prefix+[ is herdr's copy
+# mode (same as tmux), and binding over it silently left copy mode unreachable.
+move_tab_previous = "prefix+<"
+move_tab_next = "prefix+>"
 
 # Rough equivalents for things you used plugins for:
 #   tmux-sessionx / session picker -> workspace_picker = "prefix+w" (default)
