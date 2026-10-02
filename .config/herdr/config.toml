@@ -5,10 +5,16 @@ onboarding = false
 
 [theme]
 name = "catppuccin"
+# Follow the host terminal's light/dark appearance. Ghostty is set to
+# Mocha/Latte, so this keeps herdr in step with it rather than pinning one.
+auto_switch = true
+dark_name = "catppuccin"        # herdr's built-in catppuccin is Mocha
+light_name = "catppuccin-latte"
 
-# Pin the exact Mocha values you used in tmux_conf_theme_colour_* rather than
-# trusting the built-in "catppuccin" flavor default.
-[theme.custom]
+# Scoped to .dark on purpose. These are the Mocha values from
+# tmux_conf_theme_colour_*; as a bare [theme.custom] they applied to *both*
+# appearances and would paint Mocha hexes over Latte in light mode.
+[theme.custom.dark]
 panel_bg = "#1e1e2e" # base
 accent = "#89b4fa"   # blue - matches tmux_conf_theme_pane_active_border / current window
 red = "#f38ba8"
