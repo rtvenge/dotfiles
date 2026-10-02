@@ -20,6 +20,19 @@ yellow = "#f9e2af"
 accent = "#89b4fa"
 mouse_capture = true       # you had `set -g mouse on`
 
+# Right edge of the tab bar -- the old tmux status-right (tmux.conf.local:274),
+# which ran weather / uptime / time / hostname. herdr has native types for
+# datetime and hostname; weather and uptime come from bin/herdr-status, because
+# a `command` entry is the only hook for anything herdr doesn't model itself.
+# Entries render on the herdr server and refresh independently.
+tab_bar_right = [
+  { type = "command", command = "/Users/ryantvenge/dotfiles/bin/herdr-status weather", interval_seconds = 900, timeout_seconds = 8 },
+  { type = "command", command = "/Users/ryantvenge/dotfiles/bin/herdr-status uptime", interval_seconds = 60 },
+  { type = "datetime", format = "%-I:%M %p" },
+  { type = "hostname" },
+]
+tab_bar_right_separator = "  │  "
+
 [keys]
 prefix = "ctrl+s"
 

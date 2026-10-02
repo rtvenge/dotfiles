@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+#
+# herdr-status — status entries for herdr's tab bar right edge.
+#
+# Ports the pieces of the old tmux status-right (tmux.conf.local:274) that
+# herdr has no built-in type for. herdr ships zoom/hostname/datetime/text
+# natively; these are the rest.
+#
+# Each entry is a `type = "command"` in ui.tab_bar_right, refreshed on its own
+# interval_seconds. Commands run on the herdr server, so this prints one short
+# line and exits -- no daemons, no persistent state beyond the weather cache.
+#
+# Usage: herdr-status <uptime|weather|battery>
+
+set -uo pipefail
+
+CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/herdr-status"
+
+uptime_short() {
+	# `uptime` on macOS formats for humans and drops the day count past a point.
+	# kern.boottime is exact. Split on space-or-comma: "{ sec = N, usec = N }"
+	# makes N field 4 -- a `.*sec = ` regex matches *usec* instead, greedily.
+	local boot now secs
+	boot=$(sysctl -n kern.boottime 2>/dev/null | awk -F'[ ,]+' '{print $4}')
+	[[ -n $boot ]] || return 1
+	now=$(date +%s)
+	secs=$((now - boot))
+	printf '↑%dd %dh %dm' $((secs / 86400)) $((secs % 86400 / 3600)) $((secs % 3600 / 60))
+}
+
+weather_short() {
+	# wttr.in, matching what oh-my-tmux's #{weather} used. %t is temperature,
+	# %C the condition; &u forces USCS units.
+	local cache="$CACHE_DIR/weather" out
+	if out=$(curl -fsS -m 5 'https://wttr.in/?format=%t+%C&u' 2>/dev/null) && [[ -n ${out//[[:space:]]/} ]]; then
+		mkdir -p "$CACHE_DIR" 2>/dev/null
+		printf '%s' "$out" >"$cache" 2>/dev/null
+		printf '%s' "$out"
+		return 0
+	fi
+	# Network blip shouldn't blank the bar: reuse the last reading for up to two
+	# hours, then show nothing rather than something stale enough to mislead.
+	if [[ -f $cache ]]; then
+		local age
+		age=$(( $(date +%s) - $(stat -f %m "$cache" 2>/dev/null || echo 0) ))
+		if ((age < 7200)); then
+			cat "$cache"
+			return 0
+		fi
+	fi
+	return 1
+}
+
+battery_short() {
+	# Prints nothing on desktops, which hides the entry rather than showing 0%.
+	local pct
+	pct=$(pmset -g batt 2>/dev/null | sed -nE 's/.*[[:space:]]([0-9]+)%.*/\1/p' | head -1)
+	[[ -n $pct ]] || return 1
+	printf '%s%%' "$pct"
+}
+
+case "${1:-}" in
+uptime) uptime_short ;;
+weather) weather_short ;;
+battery) battery_short ;;
+*)
+	printf 'usage: herdr-status <uptime|weather|battery>\n' >&2
+	exit 1
+	;;
+esac
