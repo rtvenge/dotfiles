@@ -18,9 +18,15 @@ private.yml
 *.bak
 .config/herdr/*.log
 .config/herdr/*.sock
+# A symlink into /var/run that the server recreates on every start; *.sock
+# above does not match it.
+.config/herdr/*.sock.agent
 .config/herdr/.plugins.lock
 .config/herdr/plugins.json
 .config/herdr/session.json
+.config/herdr/release-notes.json
+# Per-session pane/layout state written by the server at runtime.
+.config/herdr/session-snapshots/
 # plugins/github is a 6.6MB clone of each plugin's source, re-fetched on install.
 # plugins/config is our own project/quick-action TOML — keep that.
 .config/herdr/plugins/*
