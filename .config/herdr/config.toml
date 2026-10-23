@@ -86,6 +86,21 @@ command = "lazygit"
 width = "80%"
 height = "80%"
 
+# Tig popup
+[[keys.command]]
+key = "prefix+alt+t"
+type = "popup"
+command = "tig"
+width = "80%"
+height = "80%"
+
+# Htop
+[[keys.command]]
+key = "prefix+alt+h"
+type = "popup"
+command = "htop"
+width = "80%"
+
 # SpinupWP TUI popup (mwender/tap/spinuptui). Bare command, like lazygit above:
 # it lives in /opt/homebrew/bin, which is on PATH everywhere. This was an
 # absolute ~/.bun/bin path while spinuptui was a bun global -- that install is
