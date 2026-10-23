@@ -112,11 +112,28 @@ command = "spinuptui"
 width = "80%"
 height = "80%"
 
-# LaxyDocker popup.
+# LazyDocker popup.
 [[keys.command]]
 key = "prefix+alt+d"
 type = "popup"
-command = "LazyDocker"
+command = "lazydocker"
+width = "80%"
+height = "80%"
+
+# Yazi file manager popup.
+[[keys.command]]
+key = "prefix+alt+f"
+type = "popup"
+command = "yazi"
+width = "80%"
+height = "80%"
+
+# fzf file finder popup: fuzzy-pick a file (bat preview), open it in nvim right
+# in the popup. Esc out of fzf and the popup just closes.
+[[keys.command]]
+key = "prefix+alt+p"
+type = "popup"
+command = "f=$(fd --type f --hidden --exclude .git | fzf --preview 'bat --color=always --style=numbers {}') && nvim \"$f\""
 width = "80%"
 height = "80%"
 
