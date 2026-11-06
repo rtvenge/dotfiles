@@ -70,17 +70,7 @@
     "ctrl-s w": "mod.open:picker",
     "ctrl-s shift-n": "space.new",
     "ctrl-s b": "layout.toggle:sidebar",
-    "ctrl-s alt-g": {
-      "command": "terminal.open",
-      "args": {
-        "argv": [
-          "zsh",
-          "-lc",
-          "lazygit"
-        ],
-        "place": "tab"
-      }
-    },
+    "ctrl-s alt-g": "mod.open:lazygit",
     "ctrl-s alt-t": {
       "command": "terminal.open",
       "args": {
@@ -155,7 +145,10 @@
     "ctrl-s 6": "tab.select:6",
     "ctrl-s 7": "tab.select:7",
     "ctrl-s 8": "tab.select:8",
-    "ctrl-s 9": "tab.select:9"
+    "ctrl-s 9": "tab.select:9",
+    "cmd-e": "mod.open:herdr-nvim",
+    "cmd-o": "herdr-nvim.pick",
+    "cmd-shift-e": "herdr-nvim.reveal"
   },
   "terminal": {
     "cmd-f": "terminal.search",
@@ -167,6 +160,7 @@
     "alt-backspace": "send:\u0017",
     "cmd-left": "send:\u0001",
     "cmd-right": "send:\u0005",
-    "cmd-backspace": "send:\u0015"
+    "cmd-backspace": "send:\u0015",
+    "ctrl-s alt-g": "mod.open:lazygit"
   }
 }

@@ -38,6 +38,7 @@ private.yml
 !.config/herdr-app/keys.json
 !.config/herdr-app/settings.json
 !.config/herdr-app/programs.json
+!.config/herdr-app/lazygit.json
 !.config/herdr-app/layouts/
 !.config/herdr-app/themes/
 !.config/herdr-app/mods/
@@ -75,3 +76,8 @@ private.yml
 # Type stubs the app writes into every mod folder on start.
 .config/herdr-app/mods/*/gpui-kit.d.ts
 .config/herdr-app/mods/*/jsconfig.json
+# herdr-nvim's mods are put in place by its installer (with a wrapper holding
+# this machine's paths): reinstall on a new machine instead of tracking them.
+#   curl -fsSL https://raw.githubusercontent.com/ChmaraX/herdr-nvim/main/install.sh | sh -s -- --app
+.config/herdr-app/mods/herdr-nvim/
+.config/herdr-app/mods/herdr-nvim-header/
