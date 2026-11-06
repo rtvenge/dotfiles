@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env zsh
+# vim: ft=zsh
 
 #############
 # My Alias' #
@@ -6,13 +7,17 @@
 
 alias edithosts='sudo vim /etc/hosts'
 alias ipaddr="ifconfig |grep inet"
-# if running "eza --git" throws an error, change alias
-if command -v exa 1>/dev/null 2>&1; then
-  alias l="eza -lah --icons"
-else
+# Use eza, else exa (Debian's exa may be built without --git), else plain ls,
+# so `l` and `ls` work whichever is installed.
+if command -v eza >/dev/null 2>&1; then
   alias l="eza -lah --git --icons"
+  alias ls="eza"
+elif command -v exa >/dev/null 2>&1; then
+  alias l="exa -lah --icons"
+  alias ls="exa"
+else
+  alias l="ls -lah"
 fi
-alias ls="eza"
 if command -v bat 1>/dev/null 2>&1; then
   alias cat="bat"
 elif command -v batcat 1>/dev/null 2>&1; then

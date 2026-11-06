@@ -1,21 +1,5 @@
-#!/bin/bash
-
-function termauth() {
-  terminus auth:login --machine-token=TERMINUS_KEY
-  lando terminus auth:login --machine-token=TERMINUS_KEY
-}
-
-function webhost() {
-  git remote add webhost $(terminus connection:info --format=list --fields=git_url $1.dev)
-}
-
-function gitsync() {
-  git checkout $1
-  git pull webhost $1
-  git pull origin $1
-  git push webhost $1
-  git push origin $1
-}
+#!/usr/bin/env zsh
+# vim: ft=zsh
 
 function gitflowsync() {
   git checkout main
@@ -40,16 +24,6 @@ function npmbuild() {
   git commit -am "Adding compiled files."
 }
 
-function clonesite() {
-  cd ~/Sites/lando
-  git clone git@gitlab.com:hoverboard88/client-sites/$1.git
-  cd $1
-  webhost $1
-  gitsync master
-  lando start
-  lando pull --code=none --database=live --files=live
-}
-
 function gitbranchcleanup() {
   git branch | grep -v " master$" | grep -v " main$" | grep -v " develop$" | grep -v " dev$" | xargs git branch -D
   git remote prune origin
@@ -57,13 +31,13 @@ function gitbranchcleanup() {
 
 # Troubleshoot load time
 function timezsh() {
-  shell=${1-$SHELL}
-  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+  local shell=${1-$SHELL}
+  repeat 10 /usr/bin/time "$shell" -i -c exit
 }
 
 function fcd() {
   local dir
-  dir=$(find ${1:-.} -type d -not -path '*/\.*' 2>/dev/null | fzf +m) && cd "$dir"
+  dir=$(find "${1:-.}" -type d -not -path '*/\.*' 2>/dev/null | fzf +m) && cd "$dir" || return
 }
 
 function flushDNS() {
