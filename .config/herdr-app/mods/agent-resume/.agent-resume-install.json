@@ -1,0 +1,10 @@
+{
+  "package": "herdr-agent-resume",
+  "version": "0.4.1",
+  "files": {
+    "main.js": "c563f44ce8d6197038b5d434d6df3a1a1eeae90a47c0d06dae14716f40559291",
+    "summary.js": "0c9c371bbf60eae229fae93b27497dd40124ef08e6eab6f6caa0ca72966532f7",
+    "mod.json": "82f305030a1dad11c58a234c845541fdd9bee22db817b9eb73d3715bf49be04a",
+    "agent_resume.py": "813a651e11ca2c622c23eb0e95c6232a8189b98fa82e5ddf73d8d7398d2fbe52"
+  }
+}
