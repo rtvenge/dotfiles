@@ -205,6 +205,16 @@
           "content": {
             "mod": "session-bar"
           }
+        },
+        {
+          "id": "desktop-notifications",
+          "type": "block",
+          "size": {
+            "px": 0
+          },
+          "content": {
+            "mod": "desktop-notifications"
+          }
         }
       ]
     }
