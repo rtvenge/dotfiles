@@ -146,9 +146,6 @@
     "ctrl-s 7": "tab.select:7",
     "ctrl-s 8": "tab.select:8",
     "ctrl-s 9": "tab.select:9",
-    "cmd-e": "mod.open:herdr-nvim",
-    "cmd-o": "herdr-nvim.pick",
-    "cmd-shift-e": "herdr-nvim.reveal",
     "ctrl-shift-r": "mod.open:agent-resume"
   },
   "terminal": {
