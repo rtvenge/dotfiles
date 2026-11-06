@@ -31,3 +31,47 @@ private.yml
 # plugins/config is our own project/quick-action TOML — keep that.
 .config/herdr/plugins/*
 !.config/herdr/plugins/config/
+# Herdr desktop app (~/.config/herdr-app -> here). Most of this folder is
+# rewritten by the app on every start or is runtime state, so track only what's
+# ours: keys, settings, programs, and our own layouts/themes/mods.
+.config/herdr-app/*
+!.config/herdr-app/keys.json
+!.config/herdr-app/settings.json
+!.config/herdr-app/programs.json
+!.config/herdr-app/layouts/
+!.config/herdr-app/themes/
+!.config/herdr-app/mods/
+# Click state (sizes, hidden panels, theme picks) the app writes per layout.
+.config/herdr-app/layouts/.state/
+# Shipped by Herdr (see installed.json), replaced whole on every start.
+.config/herdr-app/layouts/main.json
+.config/herdr-app/layouts/terminals.json
+.config/herdr-app/layouts/win98.json
+.config/herdr-app/layouts/win98.svg
+.config/herdr-app/layouts/*.old-*
+.config/herdr-app/themes/win98.json
+.config/herdr-app/themes/atom-one-dark.json
+.config/herdr-app/mods/agents/
+.config/herdr-app/mods/changes/
+.config/herdr-app/mods/confirm/
+.config/herdr-app/mods/files/
+.config/herdr-app/mods/help/
+.config/herdr-app/mods/machine-add/
+.config/herdr-app/mods/menu/
+.config/herdr-app/mods/new-menu/
+.config/herdr-app/mods/pane/
+.config/herdr-app/mods/peek/
+.config/herdr-app/mods/picker/
+.config/herdr-app/mods/prompt/
+.config/herdr-app/mods/spaces/
+.config/herdr-app/mods/tabs/
+.config/herdr-app/mods/terminals-bar/
+.config/herdr-app/mods/terminals-pane/
+.config/herdr-app/mods/toast/
+.config/herdr-app/mods/win98/
+.config/herdr-app/mods/workspace-chrome/
+.config/herdr-app/mods/workspace-status/
+.config/herdr-app/mods/worktree/
+# Type stubs the app writes into every mod folder on start.
+.config/herdr-app/mods/*/gpui-kit.d.ts
+.config/herdr-app/mods/*/jsconfig.json
