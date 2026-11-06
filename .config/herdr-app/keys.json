@@ -71,72 +71,12 @@
     "ctrl-s shift-n": "space.new",
     "ctrl-s b": "layout.toggle:sidebar",
     "ctrl-s alt-g": "mod.open:lazygit",
-    "ctrl-s alt-t": {
-      "command": "terminal.open",
-      "args": {
-        "argv": [
-          "zsh",
-          "-lc",
-          "tig"
-        ],
-        "place": "tab"
-      }
-    },
-    "ctrl-s alt-h": {
-      "command": "terminal.open",
-      "args": {
-        "argv": [
-          "zsh",
-          "-lc",
-          "htop"
-        ],
-        "place": "tab"
-      }
-    },
-    "ctrl-s alt-s": {
-      "command": "terminal.open",
-      "args": {
-        "argv": [
-          "zsh",
-          "-lc",
-          "spinuptui"
-        ],
-        "place": "tab"
-      }
-    },
-    "ctrl-s alt-d": {
-      "command": "terminal.open",
-      "args": {
-        "argv": [
-          "zsh",
-          "-lc",
-          "lazydocker"
-        ],
-        "place": "tab"
-      }
-    },
-    "ctrl-s alt-f": {
-      "command": "terminal.open",
-      "args": {
-        "argv": [
-          "zsh",
-          "-lc",
-          "yazi"
-        ],
-        "place": "tab"
-      }
-    },
-    "ctrl-s alt-p": {
-      "command": "terminal.open",
-      "args": {
-        "argv": [
-          "zsh",
-          "-lc",
-          "f=$(fd --type f --hidden --exclude .git | fzf --preview 'bat --color=always --style=numbers {}') && nvim \"$f\""
-        ],
-        "place": "tab"
-      }
-    },
+    "ctrl-s alt-t": "mod.open:float-tig",
+    "ctrl-s alt-h": "mod.open:float-htop",
+    "ctrl-s alt-s": "mod.open:float-spinuptui",
+    "ctrl-s alt-d": "mod.open:float-lazydocker",
+    "ctrl-s alt-f": "mod.open:float-yazi",
+    "ctrl-s alt-p": "mod.open:float-files",
     "ctrl-s 1": "tab.select:1",
     "ctrl-s 2": "tab.select:2",
     "ctrl-s 3": "tab.select:3",
@@ -159,6 +99,12 @@
     "cmd-left": "send:\u0001",
     "cmd-right": "send:\u0005",
     "cmd-backspace": "send:\u0015",
-    "ctrl-s alt-g": "mod.open:lazygit"
+    "ctrl-s alt-g": "mod.open:lazygit",
+    "ctrl-s alt-t": "mod.open:float-tig",
+    "ctrl-s alt-h": "mod.open:float-htop",
+    "ctrl-s alt-s": "mod.open:float-spinuptui",
+    "ctrl-s alt-d": "mod.open:float-lazydocker",
+    "ctrl-s alt-f": "mod.open:float-yazi",
+    "ctrl-s alt-p": "mod.open:float-files"
   }
 }
