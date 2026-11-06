@@ -1,12 +1,15 @@
 {
-  "lastChangelogVersion": "0.84.2",
-  "theme": "catppuccin-mocha",
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-fable-5",
+  "defaultModel": "gemma4:e2b-mlx",
+  "defaultProvider": "ollama",
   "enabledModels": [
     "anthropic/claude-fable-5",
     "anthropic/claude-opus-5",
     "lmstudio/lfm2.5-8b-a1b-mlx",
     "lmstudio/qwen3.8-27b-mtplx-optimized-speed"
+  ],
+  "lastChangelogVersion": "0.84.2",
+  "theme": "catppuccin-mocha",
+  "packages": [
+    "npm:@ollama/pi-web-search"
   ]
 }

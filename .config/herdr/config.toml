@@ -32,6 +32,9 @@ mouse_capture = true       # you had `set -g mouse on`
 # a `command` entry is the only hook for anything herdr doesn't model itself.
 # Entries render on the herdr server and refresh independently.
 tab_bar_right = [
+  # Local-model monitoring: unified memory incl. swap once it spills, and GPU busy %.
+  { type = "command", command = "/Users/ryantvenge/dotfiles/bin/herdr-status mem", interval_seconds = 5 },
+  { type = "command", command = "/Users/ryantvenge/dotfiles/bin/herdr-status gpu", interval_seconds = 5 },
   { type = "command", command = "/Users/ryantvenge/dotfiles/bin/herdr-status weather", interval_seconds = 900, timeout_seconds = 8 },
   { type = "command", command = "/Users/ryantvenge/dotfiles/bin/herdr-status uptime", interval_seconds = 60 },
   { type = "datetime", format = "%-I:%M %p" },

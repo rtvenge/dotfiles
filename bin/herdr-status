@@ -10,7 +10,7 @@
 # interval_seconds. Commands run on the herdr server, so this prints one short
 # line and exits -- no daemons, no persistent state beyond the weather cache.
 #
-# Usage: herdr-status <uptime|weather|battery>
+# Usage: herdr-status <uptime|weather|battery|mem|gpu>
 
 set -uo pipefail
 
@@ -59,12 +59,45 @@ battery_short() {
 	printf '%s%%' "$pct"
 }
 
+mem_short() {
+	# Activity Monitor's "Memory Used": app (anonymous minus purgeable) + wired +
+	# compressed. Wired matters most here -- a model loaded by LM Studio/Ollama
+	# sits in wired GPU memory, so it shows up in this number. Swap is appended
+	# only past 1G, since that's the sign a model no longer fits in RAM.
+	local page total stats used swap
+	page=$(sysctl -n hw.pagesize 2>/dev/null) || return 1
+	total=$(sysctl -n hw.memsize 2>/dev/null) || return 1
+	stats=$(vm_stat 2>/dev/null) || return 1
+	used=$(awk -F: -v page="$page" '
+		/^Anonymous pages/              { a = $2 }
+		/^Pages purgeable/              { p = $2 }
+		/^Pages wired down/             { w = $2 }
+		/^Pages occupied by compressor/ { c = $2 }
+		END { printf "%d", (a - p + w + c) * page / 1073741824 }' <<<"$stats")
+	printf 'mem %s/%dG' "$used" $((total / 1073741824))
+	swap=$(sysctl -n vm.swapusage 2>/dev/null | sed -nE 's/.*used = ([0-9.]+)M.*/\1/p')
+	if [[ -n $swap ]] && awk -v s="$swap" 'BEGIN { exit !(s >= 1024) }'; then
+		awk -v s="$swap" 'BEGIN { printf " +%.0fG swap", s / 1024 }'
+	fi
+}
+
+gpu_short() {
+	# Apple Silicon GPU busy %, from the IOAccelerator stats -- no sudo, unlike
+	# powermetrics. This is what pegs while a local model is generating.
+	local pct
+	pct=$(ioreg -r -d 1 -c IOAccelerator 2>/dev/null | sed -nE 's/.*"Device Utilization %"=([0-9]+).*/\1/p' | head -1)
+	[[ -n $pct ]] || return 1
+	printf 'gpu %s%%' "$pct"
+}
+
 case "${1:-}" in
 uptime) uptime_short ;;
 weather) weather_short ;;
 battery) battery_short ;;
+mem) mem_short ;;
+gpu) gpu_short ;;
 *)
-	printf 'usage: herdr-status <uptime|weather|battery>\n' >&2
+	printf 'usage: herdr-status <uptime|weather|battery|mem|gpu>\n' >&2
 	exit 1
 	;;
 esac
