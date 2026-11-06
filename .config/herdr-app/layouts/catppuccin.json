@@ -55,7 +55,7 @@
               },
               "min": 90,
               "content": {
-                "mod": "spaces-icons"
+                "mod": "better-sidebar"
               }
             },
             {
@@ -66,7 +66,10 @@
               },
               "min": 90,
               "content": {
-                "mod": "agents"
+                "mod": "better-sidebar",
+                "props": {
+                  "view": "agents"
+                }
               }
             }
           ]
@@ -75,12 +78,12 @@
           "id": "sidebar-footer",
           "type": "block",
           "size": {
-            "px": 69
+            "px": 37
           },
           "content": {
-            "mod": "workspace-chrome",
+            "mod": "better-sidebar",
             "props": {
-              "footer": true
+              "view": "footer"
             }
           }
         }
