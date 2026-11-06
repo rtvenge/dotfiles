@@ -4,5 +4,7 @@
     "enabled": true
   },
   "font_ligatures": false,
-  "minimum_contrast": 1.0
+  "minimum_contrast": 1,
+  "font_size": 12,
+  "font": "BlexMono Nerd Font Mono"
 }
