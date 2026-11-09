@@ -26,6 +26,20 @@ return {
     -- per-buffer trigger flag never gets set -- virtual text then silently
     -- never fires. BufReadPre/BufNewFile both precede filetype detection.
     event = { "BufReadPre", "BufNewFile" },
+    -- <Tab> accepts. LazyVim's blink <Tab> already runs snippet_forward, then
+    -- ai_accept; filling in ai_accept (as the copilot/supermaven extras do) puts
+    -- minuet in that chain, so a snippet jump still wins and a plain Tab still
+    -- indents when there is no suggestion. <A-l> below keeps working too.
+    init = function()
+      LazyVim.cmp.actions.ai_accept = function()
+        local vt = require("minuet.virtualtext").action
+        if vt.is_visible() then
+          LazyVim.create_undo()
+          vim.schedule(vt.accept)
+          return true
+        end
+      end
+    end,
     opts = {
       provider = "claude",
 
@@ -49,6 +63,12 @@ return {
       -- that made it feel like it was typing over you.
       debounce = 600,
       throttle = 1500,
+
+      -- Claude (a chat model, not FIM) often restarts its answer with what was
+      -- just typed: type "/" and it offers "/** */", leaving "//** */" on
+      -- accept. minuet trims an overlap with the text before the cursor, but
+      -- only one of 2+ characters by default; 1 catches the single-char case.
+      before_cursor_filter_length = 1,
 
       -- Seconds. Default 3 is tight once the network is in the path.
       request_timeout = 5,
