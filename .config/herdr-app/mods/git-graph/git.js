@@ -314,7 +314,9 @@ export function commandsFor(a, v = {}, ctx = {}) {
   if (a.type === "commit" && !String(v.message ?? "").trim()) throw new Error("Empty commit message");
   const name = String(v.name ?? "").trim(), message = String(v.message ?? "").trim();
   switch (a.type) {
-    case "checkout": return [["checkout", a.name]];
+    // "--" ends the arguments: a branch deleted since the graph was drawn fails
+    // instead of naming a path to restore from the index.
+    case "checkout": return [["checkout", a.name, "--"]];
     case "checkoutRemote": return [["checkout", "-b", name, "--track", a.name]];
     case "checkoutCommit": return [["checkout", "--detach", a.hash]];
     case "createBranch": return [v.checkout ? ["checkout", "-b", name, a.hash] : ["branch", name, a.hash]];

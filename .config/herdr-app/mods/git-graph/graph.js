@@ -28,6 +28,12 @@ let zoomedLists;
 const listsZoom = () => zoomedLists ??= (() => { try { const v = updates()?.app?.version; return Boolean(v) && !newer("0.1.12", v); } catch { return false; } })();
 // The graph column's default keeps room for its "Graph" heading (and a lane or two) in narrow repos.
 const GRAPH_MIN = 56;
+// The commit details strip: a height the person dragged to, or (before any drag) the room the
+// commit list leaves, so a short history doesn't leave the strip a fixed 320 with a gap above it.
+// It always leaves the list room for DETAIL_ROWS commits.
+const DETAIL_DEFAULT = 320, DETAIL_MIN = 120, DETAIL_ROWS = 3;
+// Above the list and the strip: the header (42), the toolbar (34) and the column headings (24), plus the border.
+const CHROME_H = 102;
 // side: which way a drag widens it. Graph's handle is on its right edge, the others' on their left.
 const COLUMNS = { graph: { width: null, min: 24, side: 1 }, date: { width: 62, min: 36, max: 240, side: -1 },
   author: { width: 120, min: 50, max: 400, side: -1 }, hash: { width: 66, min: 40, max: 200, side: -1 } };
@@ -75,13 +81,16 @@ const folderState = () => ({
 
 // Everything the table shows for a folder, in one round of git calls: each
 // answers from any subfolder, and status names paths from the repository root.
-async function readFolder(cwd, on, { all, remotes, limit }) {
+// status: false leaves the working tree unread. `git status` runs the clean
+// filters a repository's own config defines, so a folder is only read ahead
+// (warm) for its history and refs; its uncommitted row comes when it's shown.
+async function readFolder(cwd, on, { all, remotes, limit, status: withStatus = true }) {
   const git = (args) => exec("git", [...READ, ...args], { cwd, on });
   const [top, log, head, current, branches, remoteNames, status] = await Promise.all([
     // One commit past the page says whether there are more, as Git Graph asks.
     exec("git", ["rev-parse", "--show-toplevel"], { cwd, on }), git(logArgs({ all, remotes, limit: limit + 1 })),
     git(["rev-parse", "--verify", "-q", "HEAD"]), git(["symbolic-ref", "-q", "--short", "HEAD"]),
-    git(["for-each-ref", "--format=%(refname)", "refs/heads"]), git(["remote"]), git(STATUS)]);
+    git(["for-each-ref", "--format=%(refname)", "refs/heads"]), git(["remote"]), withStatus ? git(STATUS) : null]);
   if (top.code !== 0) return { state: "norepo", cwd, on };
   // A log that fails without a HEAD is a repository with no commits yet.
   if (log.code !== 0 && head.code === 0) throw new Error(log.stderr.trim());
@@ -91,7 +100,7 @@ async function readFolder(cwd, on, { all, remotes, limit }) {
     head: head.code === 0 ? head.stdout.trim() : null, current: current.code === 0 ? current.stdout.trim() : null,
     branches: branches.stdout.split("\n").filter(Boolean).map((r) => r.replace(/^refs\/heads\//, "")),
     remoteNames: remoteNames.stdout.split("\n").filter(Boolean),
-    files: status.code === 0 ? parseStatus(status.stdout) : [],
+    files: status?.code === 0 ? parseStatus(status.stdout) : [],
     signature: [log.stdout, head.stdout, current.stdout, branches.stdout, remoteNames.stdout].join("\0"), scope: scopeOf({ all, remotes }),
   };
 }
@@ -125,6 +134,7 @@ export class Graph {
     this.all = true; this.remotes = true; this.wide = false; this.graphMax = 160; this.scale = null;
     this.watchToken = 0; this.seenChange = shared("git-graph.changed");
     this.cols = withDefaults(); this.drag = null;
+    this.detail = Number(shared("git-graph.details")) || 0; this.seenDetail = this.detail;
     this.seen = new Map(); this.commitDetails = new Map();
     // Fetch all: its progress for one Manygit folder, and each repository's last failure.
     this.fetchAll = null; this.fetchErrors = new Map();
@@ -181,7 +191,7 @@ export class Graph {
       try {
         for (const [key, { cwd, on }] of order) {
           const scope = scopeOf(this);
-          const read = await readFolder(cwd, on, { all: this.all, remotes: this.remotes, limit: PAGE }).catch(() => null);
+          const read = await readFolder(cwd, on, { all: this.all, remotes: this.remotes, limit: PAGE, status: false }).catch(() => null);
           if (read && key !== this.context && !this.seen.has(key) && scope === scopeOf(this)) {
             // A folder that isn't a repository may hold some: entering it searches (Manygit).
             keep(this.seen, key, { ...folderState(), state: read.state ?? "ready", ...read, warmed: read.state === "norepo" }, SEEN);
@@ -422,6 +432,11 @@ export class Graph {
   moveDrag(e, cx) {
     const d = this.drag;
     if (!d) return;
+    if (d.axis === "y") {
+      const h = this.clampDetail(d.from - (e.position.y - d.y) / this.unit());
+      if (h !== this.detail) { this.detail = h; d.moved = true; cx.notify(); }
+      return;
+    }
     const w = this.clampColumn(d.key, d.from + COLUMNS[d.key].side * (e.position.x - d.x) / this.unit());
     if (w !== this.cols[d.key]) { this.cols = { ...this.cols, [d.key]: w }; d.moved = true; cx.notify(); }
   }
@@ -430,11 +445,30 @@ export class Graph {
     const d = this.drag;
     if (!d) return;
     this.drag = null;
-    if (d.moved) this.saveColumns();
+    if (d.moved) { if (d.axis === "y") this.saveDetail(); else this.saveColumns(); }
     cx.notify();
   }
 
   saveColumns() { this.seenCols = JSON.stringify(this.cols); setShared("git-graph.columns", this.cols); }
+
+  // The details strip's height (it holds the diff too): a dragged height, else what the list leaves.
+  clampDetail(h) {
+    const room = Math.max(DETAIL_MIN, (this.height ?? 900) - CHROME_H - DETAIL_ROWS * this.rowH());
+    return Math.round(Math.max(DETAIL_MIN, Math.min(room, h)));
+  }
+  detailHeight() {
+    if (this.detail > 0) return this.clampDetail(this.detail);
+    // The room the history leaves: a short history hands it all to the strip, a long one keeps 320
+    // and a short pane gets whatever fits rather than clipping the list.
+    const rows = (this.commits.length + (this.hasMore ? 1 : 0)) * this.rowH();
+    return this.clampDetail(Math.max(DETAIL_DEFAULT, (this.height ?? 900) - CHROME_H - rows));
+  }
+  startDetailDrag(e, cx) {
+    cx.stop_propagation();
+    if (e.click_count >= 2) { this.detail = 0; this.seenDetail = 0; setShared("git-graph.details", 0); cx.notify(); return; }
+    this.drag = { axis: "y", y: e.position.y, from: this.detailHeight() };
+  }
+  saveDetail() { this.seenDetail = this.detail; setShared("git-graph.details", this.detail); }
   // Where the description column ends: labels past it are clipped, so not clickable.
   labelLimit() {
     if (!this.width) return Infinity;
@@ -771,12 +805,17 @@ export class Graph {
   detailsPane(t, mono) {
     const commit = this.commits[this.index.get(this.selected)], d = this.details;
     if (!commit) return div();
+    // The strip's top edge: drag to set its height, double-click for the automatic one.
+    const grip = div().id("graph-details-grip").h(6).w_full().flex_none().border_t(1).border_color(t.border).cursor_row_resize()
+      .on_mouse_down("left", (e, cx) => this.startDetailDrag(e, cx))
+      .hover((s) => s.bg(t.accent));
     const top = h_flex().h(32).flex_none().px(10).gap(6).items_center().border_b(1).border_color(t.border).text_size(11.5);
     const close = div().id("graph-details-close").px(6).py(1).rounded(4).text_color(t.dim).cursor_pointer().hover((s) => s.bg(t.hover).text_color(t.foreground))
       .on_click((_e, cx) => { this.selected = null; this.details = null; this.diff = null; cx.notify(); }).child("×");
     if (this.diff) {
       const rows = this.diff.rows;
-      return v_flex().flex_none().h(320).border_t(1).border_color(t.border)
+      return v_flex().flex_none().h(this.detailHeight())
+        .child(grip)
         .child(top.child(div().id("graph-diff-back").px(6).py(1).rounded(4).text_color(t.muted).cursor_pointer().hover((s) => s.bg(t.hover).text_color(t.foreground))
             .on_click((_e, cx) => { this.diff = null; cx.notify(); }).child("← Files"))
           .child(div().flex_1().min_w(0).truncate().font_family(mono).text_color(t.foreground).child(this.diff.path)).child(close))
@@ -789,7 +828,8 @@ export class Graph {
     }
     const title = commit.uncommitted ? "Uncommitted changes" : `Commit ${commit.hash.slice(0, 8)}`;
     const body = v_flex().id("graph-details").flex_1().min_h(0).overflow_y_scrollbar().px(14).py(10).gap(4);
-    const pane = (content) => v_flex().flex_none().h(320).border_t(1).border_color(t.border)
+    const pane = (content) => v_flex().flex_none().h(this.detailHeight())
+      .child(grip)
       .child(top.child(div().flex_1().text_color(t.muted).child(title))
         .when(Boolean(commit.uncommitted), (e) => e.child(div().id("graph-open-changes").px(6).py(1).rounded(4).text_color(t.accent).cursor_pointer().hover((s) => s.bg(t.hover))
           .on_click(() => showChanges()).child("Open Changes")))
@@ -853,6 +893,8 @@ export class Graph {
     const changed = shared("git-graph.changed");
     const savedCols = shared("git-graph.columns"), seen = JSON.stringify(savedCols ?? null);
     if (!this.drag && seen !== this.seenCols) { this.seenCols = seen; this.cols = withDefaults(savedCols); }
+    const savedDetail = Number(shared("git-graph.details")) || 0;
+    if (!this.drag && savedDetail !== this.seenDetail) { this.seenDetail = savedDetail; this.detail = savedDetail; }
     const fetched = shared("git-graph.fetched");
     if (fetched?.at !== this.seenFetched) { this.seenFetched = fetched?.at; if (fetched?.root) this.fetchErrors.delete(fetched.root); }
     // After an action (here, or from a Manygit row's menu) the graph or the list reads again.
@@ -875,7 +917,10 @@ export class Graph {
       .on_size_change((size, cx) => {
         const width = size.width / this.unit(), wide = width >= 600, graphMax = Math.max(60, Math.round(width * 0.4));
         this.width = width;
-        if (wide !== this.wide || graphMax !== this.graphMax) { this.wide = wide; this.graphMax = graphMax; cx.notify(); }
+        // The details strip fills what the history leaves, so it needs the pane's height too.
+        const height = size.height / this.unit(), resized = height !== this.height && Boolean(this.selected);
+        this.height = height;
+        if (wide !== this.wide || graphMax !== this.graphMax || resized) { this.wide = wide; this.graphMax = graphMax; cx.notify(); }
       })
       .child(this.header(t))
       .when(this.state === "workspace", (e) => e.child(this.workspaceList(t)))
