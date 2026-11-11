@@ -1,10 +1,31 @@
-.DS_Store
-package.json
-.hyper_plugins
-versions.json
-zsh
-bin
-.git
-README.md
-brew
-espanso
+# What `stow -d ~/dotfiles -t ~ .` must NOT link into ~. Each line is a Perl
+# regex matched against a file or folder name (or a path starting with /,
+# from the repo root). Having this file turns off stow's built-in ignore list,
+# so .git and friends are listed here too.
+
+# stow and git
+\.git
+\.gitignore
+\.stow-local-ignore
+\.DS_Store
+README.*
+
+# Repo-only folders: scripts, package lists, and files that tools read from
+# ~/dotfiles/... by path (zsh sources, statusline scripts).
+^/bin
+^/brew
+^/zsh
+^/claude
+^/copilot
+^/pi
+
+# This repo's own Claude Code settings, not ~/.claude.
+^/\.claude
+
+# Not under ~ on macOS: linked by hand in bin/systemsetup.sh.
+^/espanso
+
+# Leftovers from Hyper.
+package\.json
+\.hyper_plugins
+versions\.json
