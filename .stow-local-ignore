@@ -29,3 +29,8 @@ README.*
 package\.json
 \.hyper_plugins
 versions\.json
+
+# Instructions for coding agents in this repo; ~/CLAUDE.md would load in every
+# session started from ~.
+^/AGENTS\.md
+^/CLAUDE\.md
