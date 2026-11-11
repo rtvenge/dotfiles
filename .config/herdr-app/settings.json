@@ -3,7 +3,7 @@
   "sounds": {
     "enabled": true
   },
-  "font": "BlexMono Nerd Font Mono",
+  "font": "MesloLGL Nerd Font Mono",
   "font_size": 13,
   "font_ligatures": false,
   "minimum_contrast": 1.6
