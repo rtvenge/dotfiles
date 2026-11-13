@@ -32,6 +32,8 @@ matches:
     replace: "2600:3c00::f03c:93ff:feb0:e523"
   - trigger: ;hbback
     replace: hoverboard-hosting-backups
+  - trigger: ;tail
+    replace: http://pi-docker.tail3f29cc.ts.net
   - trigger: ;env
     replace: |-
       DB_NAME=database_name
@@ -42,6 +44,8 @@ matches:
       WP_ENV=development
       WP_HOME=https://SITE_NAME.hbserver.dev
       WP_SITEURL=${WP_HOME}
+      CF_ZONE_ID=
+      CF_API_TOKEN=
   - trigger: ;vv
     replace: "{{clipboard}}"
     vars:
